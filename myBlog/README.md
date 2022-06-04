@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ---
 home: true
 heroText: vuepress-theme-reco
@@ -26,7 +25,3 @@ features:
 - title: Tomorrow
   details: 希望更多的爱好者能够参与进来，帮助这个主题更好的成长
 ---
-=======
-# MyBlog_vuepress-theme-reco
-test one
->>>>>>> 99196a41432a7e287e0cc1dcb559cfbfafd58300
