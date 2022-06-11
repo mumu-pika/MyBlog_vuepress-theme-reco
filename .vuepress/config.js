@@ -5,7 +5,7 @@ module.exports = {
 
   "title": "木木的秘密花园", //左上角网站标题
   "description": "mumu 's blog",  //网站描述，会在首次loading页面时加载
-  "dest": "dist",  //vuepress build 的输出目录
+  "dest": "public",  //vuepress build 的输出目录
   "head": [
     // 为document.head部分添加link标签
     [
