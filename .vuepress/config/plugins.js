@@ -1,0 +1,73 @@
+// 这里封装博客所需要用到的插件
+
+module.exports =  [
+    // 使用来自依赖包的插件
+    //如果插件名以 vuepress-plugin- 开头，你可以使用缩写来省略这个前缀
+    [
+        // live2D看板娘插件  https://github.com/vuepress-reco/vuepress-plugin-kan-ban-niang
+        '@vuepress-reco/vuepress-plugin-kan-ban-niang',
+        {
+            // theme仅包含一个值是默认为此主题并隐藏更换主题按钮
+            // theme为多个值时初始化默认为第一个主题，点击更换主题按钮随机更换数组内的其他主题
+            theme: ['koharu','blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
+            clean: false,  // 标识是否隐藏右侧信息
+            messages: {
+                welcome: '再次遇见你啦!',
+                home: '一闪一闪亮晶晶，满天都是小星星~~',
+                theme: '呦吼！想看看我的小伙伴们嘛！',
+                close: '愿你出走半生，归来仍是少年。'
+            },
+            modelStyle: {
+              position: "fixed",
+              right: "5vw",
+              bottom: "0",
+              opacity: "0.9",
+              zIndex: 99999
+            }
+        }
+    ],
+    [
+        //为博客文章自动随机添加名人名言或其他，可自定义样式和内容的插件。 https://github.com/zpj80231/vuepress-plugin-boxx
+        'vuepress-plugin-boxx'
+    ],
+    [
+        // 添加动态标题的插件  https://github.com/moefyit/vuepress-plugin-dynamic-title
+        'vuepress-plugin-dynamic-title',
+        {
+            showIcon: '/favicon.ico',
+            showText: '(/≧▽≦/)花园朵朵开~',
+            hideIcon: '/failure.ico',
+            hideText: '(●—●) oh No！崩溃啦！',
+            recoverTime: 2000,
+        }
+    ],
+    [
+        //光标效果的插件 https://github.com/moefyit/vuepress-plugin-cursor-effects
+        'vuepress-plugin-cursor-effects',
+        // {
+        //     size: 2, // size of the particle, default: 2
+        //     shape: ['star' | 'circle'], // shape of the particle, default: 'star'
+        //     zIndex: 999999999, // z-index property of the canvas, default: 999999999
+        // }
+    ],
+    [
+        // 气泡效果的插件 https://github.com/chenxuan0000/vue-canvas-effect/blob/master/document/README.md
+        'vue-canvas-effect'
+    ],
+    [
+        // 背景樱花特效 https://github.com/JabinPeng/vuepress-plugin-sakura
+        'vuepress-plugin-sakura',
+        {
+            num: 22,  // 默认数量
+            show: true, //  是否显示
+            zIndex: -1,   // 层级
+            img: {
+              replace: false,  // false 默认图 true 换图 需要填写httpUrl地址
+              httpUrl: '...'     // 绝对路径
+            }
+        }
+    ]
+
+
+
+]

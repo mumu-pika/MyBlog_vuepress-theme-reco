@@ -1,22 +1,23 @@
 ---
 home: true
-heroText: vuepress-theme-reco
-tagline: A simple and beautiful vuepress blog theme.
-# heroImage: /hero.png
-# heroImageStyle: {
-#   maxWidth: '600px',
-#   width: '100%',
-#   display: block,
-#   margin: '9rem auto 2rem',
-#   background: '#fff',
-#   borderRadius: '1rem',
-# }
-bgImageStyle: {
-  height: '450px'
+heroText: 木木的秘密花园~
+tagline: 古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。
+heroImage: /hero.jpg
+heroImageStyle: {
+  maxWidth: '600px',
+  width: '100%',
+  display: block,
+  margin: '6rem auto 2rem',
+  background: '#fff',
+  borderRadius: '1rem',
 }
+# bgImageStyle: {
+#   height: '450px'
+# }
+
 isShowTitleInHome: false
 actionText: Guide
-actionLink: /views/other/guide
+actionLink: /blogs/other/guide
 features:
 - title: Yesterday
   details: 开发一款看着开心、写着顺手的 vuepress 博客主题
@@ -24,4 +25,6 @@ features:
   details: 希望帮助更多的人花更多的时间在内容创作上，而不是博客搭建上
 - title: Tomorrow
   details: 希望更多的爱好者能够参与进来，帮助这个主题更好的成长
+- title: Wishes
+  details: 木木很感激一路上的经历，前路的同行者们，谢谢有你们分享的技术！
 ---

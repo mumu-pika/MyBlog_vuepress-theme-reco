@@ -1,4 +1,17 @@
 ---
+title: 木木的秘密花园网站搭建
+date: 2022-06-10
+tags:
+- 技术笔记
+categories:
+ - 网站搭建相关
+---
+
+::: tip 摘要
+在vue-theme-reco主题的基础上，木木去做了自定义的修改及美化，在深入了解主题的组成之后，也期望能在此书写属于自己的coding世界！
+:::
+
+---
 title: vuepress-theme-reco
 date: 2019-04-09
 ---
@@ -61,3 +74,5 @@ yarn dev
 
 ## License
 [MIT](https://github.com/recoluan/vuepress-theme-reco/blob/master/LICENSE)
+
+

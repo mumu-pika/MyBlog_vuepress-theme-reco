@@ -1028,6 +1028,27 @@
     event-target-shim "^5.0.1"
     miniprogram-api-typings "^2.10.2"
 
+"@moefy-canvas/core@^0.3.2", "@moefy-canvas/core@^0.3.3":
+  version "0.3.2"
+  resolved "https://registry.npmmirror.com/@moefy-canvas/core/-/core-0.3.2.tgz#ea8452271f450617add7acc1d346f4e463021496"
+  integrity sha512-2nGWZpVEjJC6/unihdGusXgkUB84M+uEzJ0em9PtSJVqxjplJluAn/bmUluuiSmHJNhHaVzvIAb0KIa8Cp1TmQ==
+
+"@moefy-canvas/theme-popper@^0.3.2":
+  version "0.3.3"
+  resolved "https://registry.npmmirror.com/@moefy-canvas/theme-popper/-/theme-popper-0.3.3.tgz#2d880e3ee94c04f6224572ea5bbac5e715c69ae3"
+  integrity sha512-dP/aRxJ2GxtFrMqOUk0SB24pQQQADY2ofy2xT0/NBitD6Yma1htALOlCxFE9L8fRVEKWrW57SzZjiX8XQuqSDA==
+  dependencies:
+    "@moefy-canvas/core" "^0.3.3"
+    "@moefy-canvas/utils" "^0.3.3"
+    ts-debounce "^4.0.0"
+
+"@moefy-canvas/utils@^0.3.3":
+  version "0.3.2"
+  resolved "https://registry.npmmirror.com/@moefy-canvas/utils/-/utils-0.3.2.tgz#c7e54d8916444223594dd38c5d95e370f358ef1b"
+  integrity sha512-GpQ+Ze2dH8itfDpBau24Oe706xKsjze9B59pzHevLfEwUK9F8pgOab0ghHRw6Da7ukgqI6BKrWELIF6AHtDr3g==
+  dependencies:
+    "@moefy-canvas/core" "^0.3.2"
+
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npmmirror.com/@mrmlnc/readdir-enhanced/-/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -1328,6 +1349,11 @@
     "@vssue/api-gitlab-v4" "^1.1.1"
     valine "^1.4.14"
     vssue "^1.4.6"
+
+"@vuepress-reco/vuepress-plugin-kan-ban-niang@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.npmmirror.com/@vuepress-reco/vuepress-plugin-kan-ban-niang/-/vuepress-plugin-kan-ban-niang-1.0.5.tgz#73b47094f1a07af05923fe9ae6c25a4c33586168"
+  integrity sha512-ufqpOw0zhLxv3PvoYlHTsjmG4CFiCaQ8dnf950Ov7JmajKgpAMarZ3ObB+xi5ex0sgetxU82YSf+CptQceXQIw==
 
 "@vuepress-reco/vuepress-plugin-loading-page@^1.6.0":
   version "1.6.0"
@@ -2741,6 +2767,11 @@ compression@^1.7.4:
     on-headers "~1.0.2"
     safe-buffer "5.1.2"
     vary "~1.1.2"
+
+comutils@^1.1.11:
+  version "1.1.19"
+  resolved "https://registry.npmmirror.com/comutils/-/comutils-1.1.19.tgz#3e07f306abf48e83726511713a72b20565034443"
+  integrity sha512-JxXB67juILiwhdLwOsYyjUqwWEhHdObI0EClOPk+JDtEuTbac59s0pxGpfCBnNNQ5JommifmcMGneW/4Cg7YWw==
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -8159,6 +8190,11 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
+ts-debounce@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.npmmirror.com/ts-debounce/-/ts-debounce-4.0.0.tgz#33440ef64fab53793c3d546a8ca6ae539ec15841"
+  integrity sha512-+1iDGY6NmOGidq7i7xZGA4cm8DAa6fqdYcvO5Z6yBevH++Bdo9Qt/mN0TzHUgcCcKv1gmh9+W5dHqz8pMWbCbg==
+
 tslib@^2.0.1:
   version "2.4.0"
   resolved "https://registry.npmmirror.com/tslib/-/tslib-2.4.0.tgz#7cecaa7f073ce680a05847aa77be941098f36dc3"
@@ -8513,6 +8549,13 @@ vssue@^1.4.6, vssue@^1.4.8:
     vue-i18n "^8.11.2"
     vue-property-decorator "^8.1.1"
 
+vue-canvas-effect@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.npmmirror.com/vue-canvas-effect/-/vue-canvas-effect-0.0.12.tgz#19e73b2ec3e189a3996a716d31b401ad037049de"
+  integrity sha512-2iE/WN8iF4FF1CWAg8HKNoD7up0iXEfh6rkE5KH6sLee+ouOCrfyNHX202MbUSEEh+Wn7e63OnU19RrJ65v4lQ==
+  dependencies:
+    comutils "^1.1.11"
+
 vue-class-component@^7.1.0:
   version "7.2.6"
   resolved "https://registry.npmmirror.com/vue-class-component/-/vue-class-component-7.2.6.tgz#8471e037b8e4762f5a464686e19e5afc708502e4"
@@ -8629,6 +8672,11 @@ vuepress-html-webpack-plugin@^3.2.0:
     toposort "^1.0.0"
     util.promisify "1.0.0"
 
+vuepress-plugin-boxx@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.npmmirror.com/vuepress-plugin-boxx/-/vuepress-plugin-boxx-0.0.7.tgz#8337d27eaf5b3f609eb7befdb3681ce5f0eac17c"
+  integrity sha512-UeBl8ZCSy4wT2uh9lsO0GpIC3QaVI5gcZbs4TZ/2wMNHJ71IRXorisGe9DDSjlTU8q3vNq837tBnC8Jyq3cVXA==
+
 vuepress-plugin-container@^2.0.2:
   version "2.1.5"
   resolved "https://registry.npmmirror.com/vuepress-plugin-container/-/vuepress-plugin-container-2.1.5.tgz#37fff05662fedbd63ffd3a5463b2592c7a7f3133"
@@ -8637,12 +8685,24 @@ vuepress-plugin-container@^2.0.2:
     "@vuepress/shared-utils" "^1.2.0"
     markdown-it-container "^2.0.0"
 
+vuepress-plugin-cursor-effects@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.npmmirror.com/vuepress-plugin-cursor-effects/-/vuepress-plugin-cursor-effects-1.1.4.tgz#2407f91e2de20cf2351b9f15ef520a72a8ce61f1"
+  integrity sha512-xDY3kqulOoKBQah0x8VNBPoajSE0XzhbmHu4AH7YqArn+qyZlKTYwS+8ZUMUymC4u2MHPq6hzS6NMJcUAhfpJQ==
+  dependencies:
+    "@moefy-canvas/theme-popper" "^0.3.2"
+
 vuepress-plugin-disqus@^0.2.0:
   version "0.2.0"
   resolved "https://registry.npmmirror.com/vuepress-plugin-disqus/-/vuepress-plugin-disqus-0.2.0.tgz#0a5bde424f81e0185eda36fba23d7ac4cae6ff07"
   integrity sha512-kx+AeVzjJ9lx9bufLt1/X35V1VXfnQ1srkDMIzFKD9NyQ3eycsWQRcGO1dFe1HMrY3+7fTu+1/JeUEUEpGZ5tw==
   dependencies:
     vue-disqus "^3.0.5"
+
+vuepress-plugin-dynamic-title@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmmirror.com/vuepress-plugin-dynamic-title/-/vuepress-plugin-dynamic-title-1.0.0.tgz#867e7a8b821ad35ccfaaafc2358bc129817d422f"
+  integrity sha512-CN1wtkPNG3shGzEFgqOa2dzojSle7SeAaf+Cw77Xmkv8jvB3wO5r2zXkIHTjiclQY1c5q5lE8h2A9vQaLdor2Q==
 
 vuepress-plugin-feed@^0.1.8:
   version "0.1.9"
@@ -8664,6 +8724,11 @@ vuepress-plugin-mailchimp@^1.4.1:
   dependencies:
     jsonp "^0.2.1"
     query-string "^6.9.0"
+
+vuepress-plugin-sakura@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmmirror.com/vuepress-plugin-sakura/-/vuepress-plugin-sakura-1.2.1.tgz#4e69a41e49246a13c416d847586a3a7153c1289a"
+  integrity sha512-76q8SsTZngGIZB3+HQvZBUPn8DfgUreei2n6CINmsR0hc7zom5eOWbL0VbxVMnJc7axL1ED3etZuBd68TaBIxg==
 
 vuepress-plugin-sitemap@^2.3.1:
   version "2.3.1"
