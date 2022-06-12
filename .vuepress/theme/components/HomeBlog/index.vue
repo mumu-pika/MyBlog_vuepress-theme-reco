@@ -55,9 +55,12 @@
           </p>
         </ModuleTransition>
         <!-- 动态下拉 -->
-        <a href="#anchor" class="scroll-down bounce-enter-active down-arrow">
+        <a href="#anchor" class="anchorContainer scroll-down bounce-enter-active down-arrow">
           <img class="anchorImg" :src="anchorImageUrl" alt="anchor" />
         </a>
+      </div>
+      <!-- 气泡效果结构 -->
+      <div id="bubbles" class="bubblesContainer">
       </div>
     </div>
 
@@ -130,7 +133,7 @@ import { ModuleTransition, RecoIcon } from "@vuepress-reco/core/lib/components";
 import PersonalInfo from "@theme/components/PersonalInfo";
 import { getOneColor } from "@theme/helpers/other";
 import { useInstance } from "@theme/helpers/composable";
-
+import { circleMagic } from "@theme/helpers/utils";
 
 export default defineComponent({
   components: {
@@ -201,7 +204,14 @@ export default defineComponent({
       // })
       state.heroHeight = document.querySelector(".hero").clientHeight;
       state.recoShow = true;
-
+      // 气泡效果
+      circleMagic({
+        radius: 15,
+        density: 0.3,
+        // color: "rgba(255,255,255, .4)",
+        color: "random", //气泡随机颜色
+        clearOffset: 0.2,
+      });
     });
 
     return {
@@ -226,13 +236,13 @@ export default defineComponent({
     },
   },
 });
-</script> 
+</script>
 
 <style lang="stylus">
 // 封面整体区域
 .home-blog
   padding: 0
-  margin: 0px auto
+  margin: 0 auto
   // 导航栏下方背景图区域
   .hero
     // margin-top xxx 距离页面顶部导航栏高度大小的距离
@@ -261,8 +271,9 @@ export default defineComponent({
       text-align: center
       // 字体颜色设置
       color: #CC3299
-      font-size: 2.6rem
+      font-size: 2.4rem
       h1
+        margin: 20rem auto 1.8rem
         font-size: 4rem
       .anchorImg
         max-width: 600px
@@ -271,6 +282,16 @@ export default defineComponent({
         // margin: 6rem auto 2rem
         background: #fff
         border-radius: 2rem
+    // 气泡效果区域
+    .bubblesContainer
+      position: absolute
+      height: 100%
+      width: 100%
+      z-index 1
+    .anchorContainer
+      position relative
+      z-index: 10
+
   // 背景图下方的文档内容区域
   .home-blog-wrapper
     display: flex
@@ -333,7 +354,7 @@ export default defineComponent({
 @media (max-width: $MQMobile)
   .home-blog
     .hero
-      height: 100vh
+      height: 60vh
       img
         max-height: 210px
         margin: 2rem auto 1.2rem
@@ -357,7 +378,24 @@ export default defineComponent({
 @media (max-width: $MQMobileNarrow)
   .home-blog
     .hero
-      height: 100vh
+      position: relative
+      box-sizing: border-box
+      height: 60vh
+      display: flex
+      align-items: center
+      justify-content: center
+      // 封面格言区域
+      .mottosContainer
+        display: block
+        text-align: center
+        // 字体颜色设置
+        color: #CC3299
+        font-size: 1.2rem
+        h1
+          margin: 8rem auto 1.8rem
+          font-size: 1.6rem
+        .anchorContainer
+          display: none
       img
         max-height: 210px
         margin: 2rem auto 1.2rem
@@ -373,6 +411,8 @@ export default defineComponent({
         padding: 0.6rem 1.2rem
     .home-blog-wrapper
       display: block !important
+      margin: 0 auto
+      padding: 2rem 3rem
       .blog-list
         width: auto
       .info-wrapper
@@ -380,10 +420,12 @@ export default defineComponent({
         margin-left: 0
         .personal-info-wrapper
           display: none
+
+
 // 封面动画下拉区域
 .scroll-down
   display: block
-  margin: 12rem auto 0 auto
+  margin: 10rem auto 0 auto
   // bottom: 40px
   // width: 20px
   // height: 20px

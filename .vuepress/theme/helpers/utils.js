@@ -285,7 +285,7 @@ function resolveItem (item, pages, base, groupDepth = 1) {
   }
 
   //  Main
-  // 获取bubbles 元素节点, 这个节点在Common.vue中
+  // 获取bubbles 元素节点, 这个节点在HomeBlog/index.vue中
   const container = document.getElementById('bubbles')
   initContainer()
   addListeners()
