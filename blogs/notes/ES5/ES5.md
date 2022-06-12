@@ -1,10 +1,10 @@
 ---
 title: ES5严格模式相关
 date: 2020-2-12
+cover: https://avatars.githubusercontent.com/u/79960449?v=4
 tags:
  - ES5
  - 严格模式
-
 categories:
  - ES5
 ---

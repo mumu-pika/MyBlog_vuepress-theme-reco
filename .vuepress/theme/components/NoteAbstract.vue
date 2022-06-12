@@ -44,6 +44,7 @@ export default defineComponent({
     const getCurrentPage = (page) => {
       currentPage.value = page
       instance._setStoragePage(page)
+      // 发射事件paginationChange
       ctx.emit('paginationChange', page)
     }
 

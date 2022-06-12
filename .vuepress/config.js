@@ -60,6 +60,17 @@ module.exports = {
     "mottosStyle" : {
       "color": "#ff91d5ff"
     },
+    "covers": [
+      'https://avatars.githubusercontent.com/u/79960449?v=4',
+      'https://avatars.githubusercontent.com/u/79960449?v=4',
+      'https://avatars.githubusercontent.com/u/79960449?v=4',
+      'https://avatars.githubusercontent.com/u/79960449?v=4',
+      'https://avatars.githubusercontent.com/u/79960449?v=4',
+      'https://avatars.githubusercontent.com/u/79960449?v=4',
+      'https://avatars.githubusercontent.com/u/79960449?v=4'
+    ],
+
+
     // 顶部导航栏配置
     "nav": [
       {

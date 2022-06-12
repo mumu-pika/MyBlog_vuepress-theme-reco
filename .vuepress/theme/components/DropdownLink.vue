@@ -1,3 +1,4 @@
+<!-- 顶部导航栏中下拉箭头组件，关联arrow.styl -->
 <template>
   <div class="dropdown-wrapper" :class="{ open }">
     <a class="dropdown-title" @click="toggle">

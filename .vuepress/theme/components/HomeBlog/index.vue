@@ -64,7 +64,7 @@
       </div>
     </div>
 
-    <!-- 首页博客内容展示区域 -->
+    <!-- 首页左侧博客内容展示区域 -->
     <ModuleTransition delay="0.16">
       <div id="anchor" v-show="recoShowModule" class="home-blog-wrapper">
         <div class="blog-list">
@@ -74,6 +74,8 @@
             @paginationChange="paginationChange"
           />
         </div>
+
+        <!-- 首页右侧信息展示区域 -->
         <div class="info-wrapper">
           <PersonalInfo />
           <h4>
@@ -276,10 +278,9 @@ export default defineComponent({
         margin: 20rem auto 1.8rem
         font-size: 4rem
       .anchorImg
-        max-width: 600px
+        max-width: 200px
         width: 100%
         display: block
-        // margin: 6rem auto 2rem
         background: #fff
         border-radius: 2rem
     // 气泡效果区域
@@ -297,7 +298,7 @@ export default defineComponent({
     display: flex
     align-items: flex-start
     margin: 0 auto
-    padding: 5rem 3rem
+    padding: 3rem
     max-width: $homePageWidth
     .blog-list
       flex: auto
@@ -308,7 +309,7 @@ export default defineComponent({
     .info-wrapper
       position: -webkit-sticky
       position: sticky
-      top: 70px
+      top: 4.4rem
       overflow: hidden
       transition: all 0.3s
       margin-left: 15px
@@ -354,7 +355,28 @@ export default defineComponent({
 @media (max-width: $MQMobile)
   .home-blog
     .hero
-      height: 60vh
+      position: relative
+      box-sizing: border-box
+      height: 100vh
+      display: flex
+      align-items: center
+      justify-content: center
+      // 封面格言区域
+      .mottosContainer
+        display: block
+        text-align: center
+        // 字体颜色设置
+        color: #CC3299
+        font-size: 1.2rem
+        h1
+          margin: 8rem auto 1.8rem
+          font-size: 1.6rem
+        .anchorImg
+          max-width: 200px
+          width: 100%
+          display: block
+          background: #fff
+          border-radius: 2rem
       img
         max-height: 210px
         margin: 2rem auto 1.2rem
@@ -380,22 +402,13 @@ export default defineComponent({
     .hero
       position: relative
       box-sizing: border-box
-      height: 60vh
+      height: 40vh
       display: flex
       align-items: center
       justify-content: center
       // 封面格言区域
       .mottosContainer
-        display: block
-        text-align: center
-        // 字体颜色设置
-        color: #CC3299
-        font-size: 1.2rem
-        h1
-          margin: 8rem auto 1.8rem
-          font-size: 1.6rem
-        .anchorContainer
-          display: none
+        display: none
       img
         max-height: 210px
         margin: 2rem auto 1.2rem
@@ -412,7 +425,7 @@ export default defineComponent({
     .home-blog-wrapper
       display: block !important
       margin: 0 auto
-      padding: 2rem 3rem
+      padding:  2rem
       .blog-list
         width: auto
       .info-wrapper
@@ -426,7 +439,7 @@ export default defineComponent({
 .scroll-down
   display: block
   margin: 10rem auto 0 auto
-  // bottom: 40px
+  bottom: 6rem
   // width: 20px
   // height: 20px
   font-size: 20rem
