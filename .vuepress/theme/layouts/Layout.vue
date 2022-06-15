@@ -1,3 +1,4 @@
+<!-- 整体布局主组件 -->
 <template>
   <Common :sidebarItems="sidebarItems" :showModule="recoShowModule">
     <component v-if="$frontmatter.home" :is="homeCom"/>

@@ -5,28 +5,29 @@ module.exports =  [
     //如果插件名以 vuepress-plugin- 开头，你可以使用缩写来省略这个前缀
 
     // live2D看板娘插件  https://github.com/vuepress-reco/vuepress-plugin-kan-ban-niang
-    [
-        '@vuepress-reco/vuepress-plugin-kan-ban-niang',
-        {
-            // theme仅包含一个值是默认为此主题并隐藏更换主题按钮
-            // theme为多个值时初始化默认为第一个主题，点击更换主题按钮随机更换数组内的其他主题
-            theme: ['koharu','blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
-            clean: false,  // 标识是否隐藏右侧信息
-            messages: {
-                welcome: '再次遇见你啦!',
-                home: '一闪一闪亮晶晶，满天都是小星星~~',
-                theme: '呦吼！想看看我的小伙伴们嘛！',
-                close: '愿你出走半生，归来仍是少年。'
-            },
-            modelStyle: {
-              position: "fixed",
-              right: "5vw",
-              bottom: "0",
-              opacity: "0.9",
-              zIndex: 99999
-            }
-        }
-    ],
+    // 因为加载可能会有问题产生，故暂不使用看板娘插件
+    // [
+    //     '@vuepress-reco/vuepress-plugin-kan-ban-niang',
+    //     {
+    //         // theme仅包含一个值是默认为此主题并隐藏更换主题按钮
+    //         // theme为多个值时初始化默认为第一个主题，点击更换主题按钮随机更换数组内的其他主题
+    //         theme: ['koharu','blackCat', 'whiteCat', 'haru1', 'haru2', 'haruto', 'izumi', 'shizuku', 'wanko', 'miku', 'z16'],
+    //         clean: false,  // 标识是否隐藏右侧信息
+    //         messages: {
+    //             welcome: '再次遇见你啦!',
+    //             home: '一闪一闪亮晶晶，满天都是小星星~~',
+    //             theme: '呦吼！想看看我的小伙伴们嘛！',
+    //             close: '愿你出走半生，归来仍是少年。'
+    //         },
+    //         modelStyle: {
+    //           position: "fixed",
+    //           right: "5vw",
+    //           bottom: "0",
+    //           opacity: "0.9",
+    //           zIndex: 99999
+    //         }
+    //     }
+    // ],
 
     //为博客文章自动随机添加名人名言或其他，可自定义样式和内容的插件。 https://github.com/zpj80231/vuepress-plugin-boxx
     [

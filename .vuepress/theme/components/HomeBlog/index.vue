@@ -162,17 +162,36 @@ export default defineComponent({
       () => instance.$frontmatter.heroImageStyle || {}
     );
 
-    // 设置封面格言样式，并暴露出去给config.js
+    // 设置封面格言样式，并暴露出去给config.js来让用户设置
     const mottosStyle = computed(() => instance.$themeConfig.mottosStyle || {});
 
-    // 背景封面图片
+    // 原先的背景封面图片
+    // const bgImageStyle = computed(() => {
+    //   // const url = instance.$frontmatter.bgImage
+    //   //   ? instance.$withBase(instance.$frontmatter.bgImage)
+    //   //   : require('../../images/home-bg.jpg')  //这里设置默认封面图
+    //   const url = instance.$themeConfig.bgImage
+    //     ? instance.$withBase(instance.$themeConfig.bgImage)
+    //     : require("../../images/bg.svg"); //如果用户没有设置背景图，设置主题默认封面图
+
+    //   const initBgImageStyle = {
+    //     textAlign: "center",
+    //     overflow: "hidden",
+    //     background: `url(${url}) center/cover no-repeat `,
+    //   };
+    //   // 获取用户自定义的样式，优先更高
+    //   const { bgImageStyle } = instance.$frontmatter;
+
+    //   return bgImageStyle
+    //     ? { ...initBgImageStyle, ...bgImageStyle }
+    //     : initBgImageStyle;
+    // });
+
+    // 自定义修改的背景图片设置
     const bgImageStyle = computed(() => {
-      // const url = instance.$frontmatter.bgImage
-      //   ? instance.$withBase(instance.$frontmatter.bgImage)
-      //   : require('../../images/home-bg.jpg')  //这里设置默认封面图
-      const url = instance.$themeConfig.bgImage
-        ? instance.$withBase(instance.$themeConfig.bgImage)
-        : require("../../images/bg.svg"); //如果用户没有设置背景图，设置主题默认封面图
+      const url = instance.$themeConfig.heroImages[Math.floor(Math.random()*instance.$themeConfig.heroImages.length)]
+        ? instance.$withBase(instance.$themeConfig.heroImages[Math.floor(Math.random()*instance.$themeConfig.heroImages.length)])
+        : require("../../images/wait.jpg"); //如果用户没有设置背景图，设置主题默认封面图
 
       const initBgImageStyle = {
         textAlign: "center",

@@ -2,6 +2,7 @@
 const plugins = require('./config/plugins')
 const mottos = require('./config/mottos')
 const covers = require('./config/covers')
+const heroImages = require('./config/heroImages')
 
 module.exports = {
   "title": "木木的秘密花园", //左上角网站标题
@@ -37,12 +38,15 @@ module.exports = {
 
   // 主题配置 （这里是在reco主题的基础上做自定义修改）
   "themeConfig": {
-    // 封面格言
+    // 首页封面格言
     "mottos": mottos,
     "mottosStyle": {
-      "color": "#fd70c7ff"
+      "color": "#ffe8f6"
     },
-    // 封面图
+    //首页封面大图, 注意这里传递的是一个数组
+    "heroImages": heroImages,
+
+    // 博客文章封面图
     "covers": covers,
 
     // 顶部导航栏配置
@@ -117,7 +121,7 @@ module.exports = {
 
     // 其他部分
     "type": "blog", // 设置好网站首页，会显示HomeBlog.vue。如果注释掉，会显示Home.vue组件。
-    "bgImage": 'https://cdn.jsdelivr.net/gh/mumu-pika/MyBlogCDN/images/deskSakura.webp', //背景图片设置
+    // "bgImage": 'https://cdn.jsdelivr.net/gh/mumu-pika/MyBlogCDN/images/anime/wait.jpg', //背景图片设置，由heroImages代替
     "anchorImage": './images/pika.gif', //触发下拉图片设置
     "logo": "/logo.png", //导航栏左侧logo
     "search": true,  //顶部搜索栏，true表示开启搜索

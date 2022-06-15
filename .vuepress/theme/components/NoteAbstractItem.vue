@@ -8,7 +8,7 @@
         class="cover-img"
         :src="
           item.frontmatter.cover ||
-          this.$themeConfig.covers[Math.floor(Math.random()*this.$themeConfig.covers.length)] || '../images/'
+          this.$themeConfig.covers[Math.floor(Math.random()*this.$themeConfig.covers.length)] || '../images/lighthouse.webp'
         "
         :alt="item.title"
       />
