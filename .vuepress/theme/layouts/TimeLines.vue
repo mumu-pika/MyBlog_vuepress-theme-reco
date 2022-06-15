@@ -1,15 +1,17 @@
+<!-- 时间线组件 -->
 <template>
   <Common class="timeline-wrapper" :sidebar="false">
     <ul class="timeline-content">
       <ModuleTransition >
-        <li v-show="recoShowModule" class="desc">{{$recoLocales.timeLineMsg}}</li>
+        <!-- 时间线顶部一句 -->
+        <li v-show="recoShowModule" class="desc  kalam">{{$recoLocales.timeLineMsg}}</li>
       </ModuleTransition>
       <ModuleTransition
         :delay="String(0.08 * (index + 1))"
         v-for="(item, index) in $recoPostsForTimeline"
         :key="index">
         <li v-show="recoShowModule">
-          <h3 class="year">{{item.year}}</h3>
+          <h3 class="year kalam">{{item.year}}</h3>
           <ul class="year-wrapper">
             <li v-for="(subItem, subIndex) in item.data" :key="subIndex">
               <span class="date">{{dateFormat(subItem.frontmatter.date)}}</span>
@@ -83,8 +85,9 @@ export default defineComponent({
     }
     .desc, .year {
       position: relative;
-      color var(--text-color);
-      font-size 16px
+      color var(--poem-color);
+      font-size 2rem
+      // 左侧时间线
       &:before {
         content: " ";
         position: absolute;
@@ -100,11 +103,12 @@ export default defineComponent({
         border-radius: 50%;
       }
     }
+    // 年份
     .year {
       margin: 80px 0 0px;
-      color var(--text-color);
+      color var(--poem-color);
       font-weight: 700;
-      font-size 26px
+      font-size 2rem
     }
     .year-wrapper {
       padding-left 0!important
@@ -126,10 +130,10 @@ export default defineComponent({
           }
         }
         .date {
-          width 40px
+          width 5rem
           line-height 30px
           color var(--text-color-sub)
-          font-size 12px
+          font-size 1.2rem
           &::before {
             content: " ";
             position: absolute;
@@ -147,7 +151,7 @@ export default defineComponent({
         .title {
           line-height 30px
           color var(--text-color-sub)
-          font-size 16px
+          font-size 1.2rem
           cursor pointer
         }
       }

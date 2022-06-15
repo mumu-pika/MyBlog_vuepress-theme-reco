@@ -22,7 +22,7 @@ module.exports = (options, ctx) => ({
     '@vuepress-reco/back-to-top',
     // '@vuepress-reco/loading-page',
     '@vuepress-reco/pagation',
-    '@vuepress-reco/comments',
+    // '@vuepress-reco/comments',
     '@vuepress/active-header-links',
     ['@vuepress/medium-zoom', {
       selector: '.theme-reco-content :not(a) > img'

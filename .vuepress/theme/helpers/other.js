@@ -50,3 +50,20 @@ export function fixRouterError404 (router) {
     }
   })
 }
+
+// 随机获取一种背景颜色
+export function getOneBgc () {
+  const backgroundColorArr = [
+    '#fff3f3',
+    '#fcebe7',
+    '#fdeedf',
+    '#f5fde4',
+    '#baa6a6',
+    '#fff9da',
+    '#e8fcee',
+    '#f9e8fe',
+    '#dff0fa'
+  ]
+  const index = Math.floor(Math.random() * backgroundColorArr.length)
+  return backgroundColorArr[index]
+}

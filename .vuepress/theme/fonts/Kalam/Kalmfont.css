@@ -1,9 +1,7 @@
 @font-face {
     /* Kalam 英文字迹 */
     font-family: "Kalam"; 
-    src: url(./Kalam-Regular.ttf),
-         url(./Kalam-Light.ttf),
-         url(./Kalam-Bold.ttf);
+    src: url(./Kalam-Regular.woff2);
     font-weight: normal;
     font-style: normal;
   }

@@ -279,7 +279,8 @@ export default defineComponent({
         font-size: 4rem
       .anchorImg
         max-width: 200px
-        width: 100%
+        width: 6rem
+        height: 4rem
         display: block
         background: #fff
         border-radius: 2rem
@@ -438,7 +439,7 @@ export default defineComponent({
 // 封面动画下拉区域
 .scroll-down
   display: block
-  margin: 10rem auto 0 auto
+  margin: 12rem auto 0 auto
   bottom: 6rem
   // width: 20px
   // height: 20px
@@ -454,7 +455,7 @@ export default defineComponent({
   20%
     transform: translateY(0)
   50%
-    transform: translateY(-6rem)
+    transform: translateY(-4rem)
   80%
     transform: translateY(0)
   100%

@@ -12,7 +12,6 @@
       <h3 class="title">{{$site.title || $localeConfig.title}}</h3>
       <p class="description">{{$site.description || $localeConfig.description}}</p>
     </div>
-    
     <div class="loadingImageContainer">
         <img src="../images/pikachu-running.gif"/>
     </div>
@@ -125,8 +124,8 @@ export default defineComponent({
     margin 2rem auto
     text-align center
     img
-      width: 60%
-      height: 40%
+      width: 6rem
+      height: 4rem
 
   @keyframes pacman-balls
     75%{opacity:0.7;}

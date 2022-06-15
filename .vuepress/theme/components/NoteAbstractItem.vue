@@ -3,13 +3,12 @@
 <template>
   <div class="abstract-item" @click="$router.push(item.path)">
     <reco-icon v-if="item.frontmatter.sticky" icon="reco-sticky" />
-    <!-- <div class="cover"><img src="../images/home-bg.jpg" alt="lalala"></div> -->
     <div class="cover">
       <img
         class="cover-img"
         :src="
           item.frontmatter.cover ||
-          this.$themeConfig.covers[new Date().getDay()]
+          this.$themeConfig.covers[Math.floor(Math.random()*this.$themeConfig.covers.length)] || '../images/'
         "
         :alt="item.title"
       />

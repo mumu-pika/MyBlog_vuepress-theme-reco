@@ -38,9 +38,11 @@
 import { defineComponent } from 'vue-demi'
 import { RecoIcon } from '@vuepress-reco/core/lib/components'
 import { useInstance } from '@theme/helpers/composable'
+import AccessNumber from '@theme/components/Comments/AccessNumber.vue'
+
 
 export default defineComponent({
-  components: { RecoIcon },
+  components: { RecoIcon , AccessNumber},
   props: {
     pageInfo: {
       type: Object,

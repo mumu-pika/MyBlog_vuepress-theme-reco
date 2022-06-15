@@ -32,6 +32,7 @@
       </footer>
     </ModuleTransition>
 
+    <!-- 分页器区域 -->
     <ModuleTransition delay="0.24">
       <div class="page-nav" v-if="recoShowModule && (prev || next)">
         <p class="inner">
@@ -49,6 +50,8 @@
       </div>
     </ModuleTransition>
 
+
+    <!-- 评论显示区域 -->
     <ModuleTransition delay="0.32">
       <Comments v-if="recoShowModule" :isShowComments="shouldShowComments"/>
     </ModuleTransition>
@@ -67,8 +70,10 @@ import { ModuleTransition } from '@vuepress-reco/core/lib/components'
 import SubSidebar from '@theme/components/SubSidebar'
 import { useInstance } from '@theme/helpers/composable'
 
+import Comments from '@theme/components/Comments/Comments.vue'
+
 export default defineComponent({
-  components: { PageInfo, ModuleTransition, SubSidebar },
+  components: { PageInfo, ModuleTransition, SubSidebar, Comments },
 
   props: ['sidebarItems'],
 

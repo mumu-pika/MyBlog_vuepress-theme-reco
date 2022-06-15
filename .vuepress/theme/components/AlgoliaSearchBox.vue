@@ -1,3 +1,4 @@
+<!-- 顶部搜索框组件 -->
 <template>
   <form
     id="search-form"

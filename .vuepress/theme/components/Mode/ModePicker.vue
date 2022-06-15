@@ -1,3 +1,4 @@
+<!-- 模式选择组件 -->
 <template>
   <div class="mode-options">
     <h4 class="title">Choose mode</h4>

@@ -1,7 +1,7 @@
 ---
 title: ES5严格模式相关
 date: 2020-2-12
-cover: https://avatars.githubusercontent.com/u/79960449?v=4
+cover: https://cdn.jsdelivr.net/gh/mumu-pika/MyBlogCDN/images/pianoSpace.jpg
 tags:
  - ES5
  - 严格模式

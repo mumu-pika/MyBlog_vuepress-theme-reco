@@ -16,5 +16,8 @@
     "vuepress-plugin-sakura": "^1.2.1",
     "vuepress-theme-reco": "1.6.10"
   },
-  "description": "mumu 's blog"
+  "description": "mumu 's blog",
+  "dependencies": {
+    "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4"
+  }
 }

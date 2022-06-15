@@ -1,5 +1,4 @@
 <!-- 主题通用设置组件 -->
-
 <template>
   <div class="theme-container" :class="pageClasses">
     <!-- absolute encryption 绝对加密 -->
@@ -72,7 +71,6 @@ import PersonalInfo from "@theme/components/PersonalInfo";
 import Password from "@theme/components/Password";
 import { setTimeout } from "timers";
 import { useInstance } from "@theme/helpers/composable";
-// import { circleMagic } from "@theme/helpers/utils";
 
 import LoadingPage from "@theme/components/LoadingPage"
 
@@ -202,14 +200,6 @@ export default defineComponent({
       hasKey();
       hasPageKey();
       handleLoading();
-      // 气泡效果
-      // circleMagic({
-      //   radius: 15,
-      //   density: 0.3,
-      //   // color: "rgba(255,255,255, .4)",
-      //   color: "random", //气泡随机颜色
-      //   clearOffset: 0.2,
-      // });
     });
 
     return {

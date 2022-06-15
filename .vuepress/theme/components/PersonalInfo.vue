@@ -1,3 +1,4 @@
+<!-- 个人信息展示组件 -->
 <template>
 <div class="personal-info-wrapper">
   <img

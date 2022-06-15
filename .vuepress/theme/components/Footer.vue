@@ -36,8 +36,12 @@ import { RecoIcon } from '@vuepress-reco/core/lib/components'
 import { version } from '../package.json'
 import { useInstance } from '@theme/helpers/composable'
 
+import AccessNumber from '@theme/components/Comments/AccessNumber.vue'
+import Comments from '@theme/components/Comments/Comments.vue'
+
+
 export default defineComponent({
-  components: { RecoIcon },
+  components: { RecoIcon , AccessNumber, Comments},
   setup (props, ctx) {
     const instance = useInstance()
     const showAccessNumber = computed(() => {

@@ -1337,6 +1337,11 @@
   resolved "https://registry.npmmirror.com/@vuepress-reco/vuepress-plugin-back-to-top/-/vuepress-plugin-back-to-top-1.6.0.tgz#16cf1a6844f156c11d5135c646270c6734263eb6"
   integrity sha512-BCEv+d6UwNnI7njQx54XcsKdBvHKkp+JmyKnrxcRltyR8OAIW4qf1PQC0Ypp1GHMAL4fFgbUc9/eeAkvMPgYkg==
 
+"@vuepress-reco/vuepress-plugin-bgm-player@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.npmmirror.com/@vuepress-reco/vuepress-plugin-bgm-player/-/vuepress-plugin-bgm-player-1.1.4.tgz#c3107cb097f323a986ac6004b3dfb556901e74f5"
+  integrity sha512-DPSTwyAKmgBu6607D7PzM0ZlW5g5TuMZPEGmSKS50AIvSTFL5AO0J33NQFT63jqVKJhKmjZ0kDB8dtegPYaNlg==
+
 "@vuepress-reco/vuepress-plugin-comments@^1.6.0":
   version "1.6.0"
   resolved "https://registry.npmmirror.com/@vuepress-reco/vuepress-plugin-comments/-/vuepress-plugin-comments-1.6.0.tgz#df9fb43ce032d429b4c6defcaef461420593f69f"

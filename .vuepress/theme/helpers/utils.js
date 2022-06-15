@@ -379,8 +379,8 @@ function resolveItem (item, pages, base, groupDepth = 1) {
       that.pos.x = Math.random() * width
       that.pos.y = height + Math.random() * 100
       that.alpha = 0.1 + Math.random() * settings.clearOffset
-      that.scale = 0.1 + Math.random() * 0.3
-      that.speed = Math.random()
+      that.scale = 0.1 + Math.random() * 0.2
+      that.speed = Math.random() * 0.6
       if (settings.color === 'random') {
         that.color = randomColor()
       } else {
