@@ -4,7 +4,7 @@
   <div class="abstract-item" @click="$router.push(item.path)">
     <reco-icon v-if="item.frontmatter.sticky" icon="reco-sticky" />
     <div class="cover">
-      <img
+      <img-lazy
         class="cover-img"
         :src="
           item.frontmatter.cover ||

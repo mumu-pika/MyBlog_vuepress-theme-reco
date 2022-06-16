@@ -6,6 +6,8 @@ import { install } from 'vue-demi'
 import { addLinkToHead } from '@theme/helpers/utils'
 import { registerCodeThemeCss } from '@theme/helpers/other'
 
+import ImgLazy from 'vuepress-plugin-img-lazy/ImgLazy'
+
 export default ({
   Vue,
   siteData,
@@ -15,6 +17,7 @@ export default ({
   install(Vue)
   Vue.mixin(postMixin)
   Vue.mixin(localMixin)
+  Vue.component(ImgLazy.name, ImgLazy)  //registered as global components
   // if (!isServer) {
   //   addScriptToHead('//kit.fontawesome.com/51b01de608.js')
   //   registerCodeThemeCss(siteData.themeConfig.codeTheme)

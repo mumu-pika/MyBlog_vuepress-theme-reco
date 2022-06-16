@@ -123,6 +123,11 @@ module.exports =  [
     // https://www.npmjs.com/package/@vuepress-reco/vuepress-plugin-comments
     // [
     //     '@vuepress-reco/vuepress-plugin-comments'
-    // ]
+    // ],
 
+    // 图片懒加载
+    // https://github.com/tolking/vuepress-plugin-img-lazy
+    [
+        'img-lazy'
+    ]
 ]

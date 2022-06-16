@@ -1,4 +1,4 @@
-<!-- 评论Valine 样式 -->
+<!-- 评论区Valine 样式 -->
 <template>
   <div class="valine-wrapper">
     <!-- 诗词区域 -->
@@ -54,7 +54,6 @@ export default {
       var that = this
       // 获取今日诗词
       jinrishici.load(function (result) {
-        console.log(result);
         that.poem.poemContent = result.data.content
         that.poem.poemTitle = result.data.origin.title
         that.poem.dynasty = result.data.origin.dynasty
@@ -62,7 +61,6 @@ export default {
         // document.getElementById("veditor").setAttribute("placeholder", poem)
         // document.getElementById("poemContent").setAttribute("innerText", poem)
       });
-      console.log("2222");
       const valineOptions = {
         el: "#valine", //指定dom元素
         appId: "l1TQa0cVg7KMYNiBJnd5HBpk-9Nh9j0Va", //appId, 注册登录leanCloud后获取

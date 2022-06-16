@@ -18,6 +18,7 @@
   },
   "description": "mumu 's blog",
   "dependencies": {
-    "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4"
+    "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4",
+    "vuepress-plugin-img-lazy": "^1.0.4"
   }
 }
