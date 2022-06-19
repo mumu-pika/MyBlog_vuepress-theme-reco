@@ -1,11 +1,28 @@
 ---
-title: api
-date: 2020-05-29    
+title: 名言金句
+date: 2022-05-28
 ---
 
-This is api.
 
-<Boxx/>
+
+<marquee>
+<Boxx type="tip" :blockStyle="titleStyle" :titleStyle="titleStyle" changeTime="3000"/>
+
+<script>
+	export default {
+		data() {
+			return {
+				blockStyle: {'background':'#eee','color':'red'},
+        titleStyle: {'margin-right': '10%','font-size':'16px'},
+        contentStyle: {'margin-right': '20%','font-size':'10px',
+                        "margin-top": "1rem","margin-bottom": "0.4rem"},
+			}
+		}
+	}
+</script>
+</marquee>
+
+
 
 
 

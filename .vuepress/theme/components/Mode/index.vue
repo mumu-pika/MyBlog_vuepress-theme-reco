@@ -1,3 +1,4 @@
+<!-- 模式切换组件 -->
 <template>
   <div
     v-click-outside="hideMenu"
@@ -24,6 +25,7 @@ import ClickOutside from "vue-click-outside";
 import ModePicker from "./ModePicker";
 import applyMode from "./applyMode";
 
+
 export default {
   name: "UserSettings",
 
@@ -34,7 +36,7 @@ export default {
   components: {
     ModePicker,
     RecoIcon,
-    ModuleTransition,
+    ModuleTransition
   },
 
   data() {

@@ -1,3 +1,4 @@
+<!-- 侧边栏的组件 -->
 <template>
   <aside class="sidebar">
     <slot name="top"/>

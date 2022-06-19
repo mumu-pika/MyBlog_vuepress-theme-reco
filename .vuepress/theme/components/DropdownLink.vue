@@ -9,6 +9,7 @@
       <span class="arrow" :class="open ? 'down' : 'right'"></span>
     </a>
 
+    <!-- 下拉列表 -->
     <DropdownTransition>
       <ul class="nav-dropdown" v-show="open">
         <li
@@ -46,15 +47,18 @@ export default defineComponent({
   components: { NavLink, DropdownTransition, RecoIcon },
 
   props: {
+    // 获取父组件NavLink
     item: {
       required: true
     }
   },
 
   setup (props, ctx) {
-    const open = ref(false)
+    // open 初始状态设置为false
+    const open = ref(true)
 
     const toggle = () => {
+      // 触发时候，修改open状态
       open.value = !open.value
     }
 
@@ -68,13 +72,16 @@ export default defineComponent({
   cursor pointer
   .dropdown-title
     display block
+
     &:hover
       border-color transparent
     .arrow
       vertical-align middle
       margin-top -1px
       margin-left 0.4rem
+  // 下拉列表
   .nav-dropdown
+    // position: absolute !important
     .dropdown-item
       color inherit
       line-height 1.7rem
@@ -136,6 +143,7 @@ export default defineComponent({
 @media (min-width: $MQMobile)
   .dropdown-wrapper
     height 1.8rem
+    // 当悬浮时候
     &:hover .nav-dropdown
       // override the inline style.
       display block !important

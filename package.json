@@ -19,6 +19,8 @@
   "description": "mumu 's blog",
   "dependencies": {
     "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4",
+    "better-scroll": "^2.4.2",
+    "typed.js": "^2.0.12",
     "vuepress-plugin-img-lazy": "^1.0.4"
   }
 }

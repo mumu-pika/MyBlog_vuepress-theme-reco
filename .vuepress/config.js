@@ -72,6 +72,12 @@ module.exports = {
         ]
       },
       {
+        "text": "About",
+        "icon": "reco-account",
+        "link": "/about/",
+
+      },
+      {
         "text": "Contact",
         "icon": "reco-message",
         "items": [
@@ -89,7 +95,7 @@ module.exports = {
         "",
         "theme",
         "plugin",
-        "api"
+        "dailymotto"
       ]
     },
     // 博客配置
@@ -118,6 +124,20 @@ module.exports = {
         "link": "https://vuepress-theme-reco.recoluan.com"
       }
     ],
+    // 社交信息
+    "socials":{
+      "github" : "https://github.com/GodLikeZeal", //github
+      "gitlub" : false, //gitlub
+      "gitee" : "https://gitee.com/GodLikeZeal", //gitee
+      "jianshu" : "https://www.jianshu.com/u/e2d051b6d2e9", //简书
+      "zhihu" : "https://www.zhihu.com/people/qian-ge-diao-63", //知乎
+      "toutiao" : false, //知乎
+      "juejin": "https://juejin.im/user/2796746683716990", //掘金
+      "segmentfault" : "https://segmentfault.com/u/zeal_5eecb699bdb08", //思否
+      "csdn" : false, //CSDN
+      "wechat" : "你的微信", //微信
+      "qq" : "你的QQ" //QQ
+    },
 
     // 其他部分
     "type": "blog", // 设置好网站首页，会显示HomeBlog.vue。如果注释掉，会显示Home.vue组件。

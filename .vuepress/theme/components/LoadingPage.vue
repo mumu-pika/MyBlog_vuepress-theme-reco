@@ -90,6 +90,7 @@ export default defineComponent({
     text-align center
     box-sizing: border-box
     position: fixed
+    width:30rem
     top: 30%
     left: 50%
     transform: translate(-50%, -50%)
@@ -98,7 +99,7 @@ export default defineComponent({
       text-align center
       color $textColor
       color var(--text-color)
-      font-size 30px
+      font-size 2.2rem
       box-sizing: border-box;
       padding: 0 10px;
       text-shadow 0 2px 10px rgba(0,0,0,0.2)

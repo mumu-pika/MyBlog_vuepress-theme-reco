@@ -51,6 +51,13 @@ module.exports = (options, ctx) => ({
           path: '/timeline/',
           layout: 'TimeLines',
           scopeLayout: 'TimeLine'
+        },
+        {
+          id: 'about',
+          keys: ['about'],
+          path: '/about/',
+          layout: 'About',
+          scopeLayout: 'About'
         }
       ]
     }],

@@ -1,3 +1,4 @@
+<!-- 导航条连接的组件 -->
 <template>
   <router-link
     class="nav-link"

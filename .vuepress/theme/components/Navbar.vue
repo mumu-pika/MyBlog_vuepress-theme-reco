@@ -1,8 +1,9 @@
 <!-- 顶部导航栏组件 -->
 <template>
   <header class="navbar">
+    <!-- 侧边栏菜单按钮 -->
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
-
+    <!-- 导航栏左侧网站信息，包括头像，网站名称等 -->
     <router-link
       :to="$localePath"
       class="home-link">
@@ -16,7 +17,6 @@
         class="site-name"
         v-if="$siteTitle">{{ $siteTitle }}</span>
     </router-link>
-
     <div
       class="links"
       :style="linksWrapMaxWidth ? {
@@ -28,6 +28,7 @@
         v-if="isAlgoliaSearch"
         :options="algolia"/>
       <SearchBox v-else-if="$themeConfig.search !== false && $frontmatter.search !== false"/>
+      <!-- 导航栏主体部分，这里考虑引入better-scroll, 来解决导航栏移动端滚动-->
       <NavLinks class="can-hide"/>
     </div>
   </header>
@@ -42,8 +43,11 @@ import NavLinks from '@theme/components/NavLinks'
 import Mode from '@theme/components/Mode'
 import { useInstance } from '@theme/helpers/composable'
 
+// 引入滚动条组件
+import Scroll from "@theme/components/Scroll.vue"
+
 export default defineComponent({
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, Mode },
+  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, Mode, Scroll },
 
   setup (props, ctx) {
     const instance = useInstance()
@@ -123,13 +127,16 @@ $navbar-horizontal-padding = 1.5rem
     top $navbar-vertical-padding
     display flex
     background-color var(--background-color)
+    // 搜索框
     .search-box
       flex: 0 0 auto
       vertical-align top
+      z-index: 999999999
 
 @media (max-width: $MQMobile)
   .navbar
     padding-left 4rem
+    // 当宽度不够，取消对导航栏内容展示
     .can-hide
       display none
     .links
