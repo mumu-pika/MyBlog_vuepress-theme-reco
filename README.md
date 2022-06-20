@@ -1,5 +1,9 @@
-# 👀 Hi！Here 's my Blog! Welcome!💞️ 
+---
+home: true
+heroText: 木木的秘密花园~
+---
 
+# 👀 Hi！Here 's my Blog! Welcome!💞️ 
 
 ## Some Screenshots:
 
@@ -16,3 +20,9 @@
 ```
 
 ## If you have better suggestions or questions , welcome to submit an issue or contact me. Have a good time! 👋
+
+
+
+
+
+
