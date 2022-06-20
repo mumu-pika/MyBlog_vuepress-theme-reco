@@ -1,9 +1,4 @@
----
-home: true
-heroText: 木木的秘密花园~
----
-
-# 👀 Hi！Here 's my Blog! Welcome!💞️ 
+# 👀 Hi！Here 's my Blog! Welcome!💞️
 
 ## Some Screenshots:
 

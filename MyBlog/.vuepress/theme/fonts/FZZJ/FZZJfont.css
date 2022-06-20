@@ -1,0 +1,10 @@
+@font-face {
+    /* 方正字迹 */
+    font-family: "FZZJ"; 
+    src: url(./FZZJ-LSSSTJW.woff2);     /* 方正字迹-凌氏随手体 简 */
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+/* 引入并设置好字体后，需要去theme.styl中引入并使用 */

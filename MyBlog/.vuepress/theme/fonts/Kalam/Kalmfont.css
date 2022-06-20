@@ -1,0 +1,9 @@
+@font-face {
+    /* Kalam 英文字迹 */
+    font-family: "Kalam"; 
+    src: url(./Kalam-Regular.woff2);
+    font-weight: normal;
+    font-style: normal;
+  }
+
+/* 引入并设置好字体后，需要去theme.styl中引入并使用 */
