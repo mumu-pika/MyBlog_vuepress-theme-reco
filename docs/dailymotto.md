@@ -4,7 +4,6 @@ date: 2022-05-28
 ---
 
 
-
 <marquee>
 <Boxx type="tip" :blockStyle="titleStyle" :titleStyle="titleStyle" changeTime="3000"/>
 
@@ -21,10 +20,6 @@ date: 2022-05-28
 	}
 </script>
 </marquee>
-
-
-
-
 
 <!-- <marquee>
 <Boxx :blockStyle="blockStyle"  />

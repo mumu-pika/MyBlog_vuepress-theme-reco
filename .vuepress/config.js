@@ -66,8 +66,8 @@ module.exports = {
         "icon": "reco-message",
         "items": [
           {
-            "text": "vuepress-reco",
-            "link": "/docs/theme-reco/"
+            "text": "记事本",
+            "link": "/docs/"
           }
         ]
       },
@@ -91,13 +91,15 @@ module.exports = {
     ],
     // 左侧侧边栏配置
     "sidebar": {
-      "/docs/theme-reco/": [
+      "/docs/": [
         "",
         "theme",
         "plugin",
         "dailymotto"
       ]
     },
+    // 右侧侧边栏全局开启
+    subSidebar: 'auto',//在所有页面中启用自动生成子侧边栏，原 sidebar 仍然兼容
     // 博客配置
     "blogConfig": {
       "category": {
@@ -155,6 +157,7 @@ module.exports = {
     "codeTheme": "tomorrow", //代码块中代码的样式，这里的主题选取自PrismJS中的prism-themes
     // 配置评论valine的appId和appKey, 我这边自定义配置写在Valine.vue中
     "valineConfig": {},
+    "smoothScroll": true, //启用页面滚动效果
 
   },
   // 插件配置 (这里将插件分离出去，详见./config/plugins)

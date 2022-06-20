@@ -23,7 +23,8 @@
         'max-width': linksWrapMaxWidth + 'px'
       } : {}">
       <!-- 切换白天黑夜的模式 -->
-      <Mode />
+      <!-- <Mode /> -->
+      <DayAndNight />
       <AlgoliaSearchBox
         v-if="isAlgoliaSearch"
         :options="algolia"/>
@@ -42,12 +43,13 @@ import SidebarButton from '@theme/components/SidebarButton'
 import NavLinks from '@theme/components/NavLinks'
 import Mode from '@theme/components/Mode'
 import { useInstance } from '@theme/helpers/composable'
+import DayAndNight from '@theme/components/DayAndNight'
 
 // 引入滚动条组件
 import Scroll from "@theme/components/Scroll.vue"
 
 export default defineComponent({
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, Mode, Scroll },
+  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, Mode, Scroll, DayAndNight },
 
   setup (props, ctx) {
     const instance = useInstance()
@@ -97,6 +99,7 @@ export default defineComponent({
 <style lang="stylus">
 $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
+$navbar-navLinks-padding = 2rem
 
 .navbar
   padding $navbar-vertical-padding $navbar-horizontal-padding
@@ -123,22 +126,43 @@ $navbar-horizontal-padding = 1.5rem
     white-space nowrap
     font-size 0.9rem
     position absolute
+    display flex
     right $navbar-horizontal-padding
     top $navbar-vertical-padding
-    display flex
-    background-color var(--background-color)
+    background var(--background-color)
     // 搜索框
     .search-box
       flex: 0 0 auto
       vertical-align top
-      z-index: 999999999
 
 @media (max-width: $MQMobile)
   .navbar
     padding-left 4rem
     // 当宽度不够，取消对导航栏内容展示
+    a, span, img
+    display inline-block
+    .logo
+      width $navbarHeight - 1.4rem
+      height $navbarHeight - 1.4rem
+      min-width $navbarHeight - 1.4rem
+      margin-right 0.2rem
+      vertical-align top
+      border-radius 50%
+    .site-name
+      font-size 1rem
+      font-weight 600
+      color var(--text-color)
+      position relative
     .can-hide
       display none
     .links
-      padding-left .2rem
+      padding-left 1.5rem
+      box-sizing border-box
+      white-space nowrap
+      font-size 0.9rem
+      position absolute
+      display flex
+      right 0.5rem
+      top $navbar-vertical-padding
+      background var(--background-color)
 </style>

@@ -56,6 +56,8 @@
       <Comments v-if="recoShowModule" :isShowComments="shouldShowComments"/>
     </ModuleTransition>
 
+
+    <!-- 右侧侧边栏 -->
     <ModuleTransition>
       <SubSidebar v-if="recoShowModule" class="side-bar" />
     </ModuleTransition>

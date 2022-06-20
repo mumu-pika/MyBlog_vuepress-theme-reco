@@ -1,4 +1,4 @@
-<!-- 模式切换组件 -->
+<!-- 原模式切换组件 -->
 <template>
   <div
     v-click-outside="hideMenu"

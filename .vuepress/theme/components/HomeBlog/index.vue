@@ -191,7 +191,7 @@ export default defineComponent({
     const bgImageStyle = computed(() => {
       const url = instance.$themeConfig.heroImages[Math.floor(Math.random()*instance.$themeConfig.heroImages.length)]
         ? instance.$withBase(instance.$themeConfig.heroImages[Math.floor(Math.random()*instance.$themeConfig.heroImages.length)])
-        : require("../../images/wait.jpg"); //如果用户没有设置背景图，设置主题默认封面图
+        : require("../../images/wait.webp"); //如果用户没有设置背景图，设置主题默认封面图
 
       const initBgImageStyle = {
         textAlign: "center",

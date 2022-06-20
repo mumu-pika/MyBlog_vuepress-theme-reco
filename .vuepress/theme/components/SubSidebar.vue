@@ -1,3 +1,4 @@
+<!-- 右侧侧边栏组件 -->
 <script>
 import { defineComponent, computed } from 'vue-demi'
 import { isActive } from '@theme/helpers/utils'
