@@ -101,6 +101,7 @@ $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
 
 .navbar
+  width: 100vw
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
   box-shadow var(--box-shadow)
@@ -136,6 +137,7 @@ $navbar-horizontal-padding = 1.5rem
 
 @media (max-width: $MQMobile)
   .navbar
+    width: 100vw
     padding-left 4rem
     // 当宽度不够，取消对导航栏内容展示
     a, span, img
@@ -164,4 +166,5 @@ $navbar-horizontal-padding = 1.5rem
       right 0.5rem
       top $navbar-vertical-padding
       background var(--background-color)
+
 </style>
