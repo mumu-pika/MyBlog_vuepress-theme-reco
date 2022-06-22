@@ -8,13 +8,13 @@
         <LoadingPage v-show="firstLoad" class="loading-wrapper" />
       </transition>
 
-      <transition name="fade">
+      <!-- <transition name="fade">
         <Password
           v-show="!firstLoad && !isHasKey"
           class="password-wrapper-out"
           key="out"
         />
-      </transition>
+      </transition> -->
 
       <div :class="{ hide: firstLoad || !isHasKey }">
         <Navbar v-if="shouldShowNavbar" @toggle-sidebar="toggleSidebar" />
@@ -27,12 +27,12 @@
         </Sidebar>
 
         <!-- 显示需要输入密码的结构 -->
-        <Password
+        <!-- <Password
           v-show="!isHasPageKey"
           :isPage="true"
           class="password-wrapper-in"
           key="in"
-        ></Password>
+        ></Password> -->
         <!-- 气泡效果结构 -->
         <div :class="{ hide: !isHasPageKey }">
           <slot></slot>
