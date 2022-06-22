@@ -36,11 +36,11 @@ export default defineComponent({
   .loader-main
     position:fixed;
     width:120px;
-    height:50px;
-    top:60%;
+    height:40px;
+    top:65%;
     left:50%;
-    z-index:555;
-    transform:translate(-50%,0);
+    // z-index:555;
+    transform: translate(-50%, -50%)
     div
       &:nth-child(2){ animation:pacman-balls 1s 0s infinite linear; }
       &:nth-child(3){ animation:pacman-balls 1s 0.33s infinite linear; }
