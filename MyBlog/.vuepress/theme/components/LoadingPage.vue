@@ -31,11 +31,7 @@ export default defineComponent({
 
 <style lang="stylus" scoped>
 #loader-wrapper
-  height:100vh;
-  width:100vw;
-  background #fff
   background var(--background-color)
-
   // 吃豆豆的css3实现
   .loader-main
     position:fixed;

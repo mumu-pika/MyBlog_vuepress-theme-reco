@@ -231,7 +231,6 @@ export default defineComponent({
 .theme-container
   padding 0
   margin 0
-  position relative
   .loading-wrapper
     position: absolute
     z-index: 22
