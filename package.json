@@ -13,6 +13,7 @@
     "vuepress-plugin-boxx": "^0.0.7",
     "vuepress-plugin-cursor-effects": "^1.1.4",
     "vuepress-plugin-dynamic-title": "^1.0.0",
+    "vuepress-plugin-go-top": "^1.0.4",
     "vuepress-plugin-sakura": "^1.2.1",
     "vuepress-theme-reco": "1.6.10"
   },
@@ -21,6 +22,7 @@
     "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4",
     "better-scroll": "^2.4.2",
     "typed.js": "^2.0.12",
-    "vuepress-plugin-img-lazy": "^1.0.4"
+    "vuepress-plugin-img-lazy": "^1.0.4",
+    "vuepress-plugin-nuggets-style-copy": "^1.0.3"
   }
 }
