@@ -85,6 +85,11 @@ module.exports = {
             "text": "GitHub",
             "link": "https://github.com/mumu-pika",
             "icon": "reco-github"
+          },
+          {
+            "text": "微信公众号",
+            "link": "https://mp.weixin.qq.com/s/tYV7BDCiLxyetAP6U44EYw",
+            "icon": "reco-wechat"
           }
         ]
       }
@@ -94,7 +99,7 @@ module.exports = {
       "/docs/": [
         "",
         "theme",
-        "plugin",
+        "markdown",
         "dailymotto"
       ]
     },

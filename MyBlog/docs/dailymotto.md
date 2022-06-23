@@ -6,7 +6,8 @@ date: 2022-05-28
 
 <marquee>
 <Boxx type="tip" :blockStyle="titleStyle" :titleStyle="titleStyle" changeTime="3000"/>
-
+<Boxx type="warning" :blockStyle="titleStyle" :titleStyle="titleStyle" changeTime="1000"/>
+<Boxx type="danger" :blockStyle="contentStyle" :contentStyle="contentStyle"changeTime="1000"/>
 <script>
 	export default {
 		data() {
