@@ -146,6 +146,18 @@ module.exports = [
   // https://github.com/MisakaTAT/GoTop
   [
     'vuepress-plugin-go-top'
-  ]
+  ],
 
+  // PWA插件
+  // https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-pwa
+  [
+    '@vuepress/plugin-pwa',
+    {
+      serviceWorker: true,
+      updatePopup: {
+        message: "新的异世界挑战出现！",
+        buttonText: "冒险！冲！"
+      }
+    }
+  ],
 ]

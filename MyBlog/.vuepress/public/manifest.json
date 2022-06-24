@@ -1,0 +1,15 @@
+{
+  "name": "mumu's blog",
+  "short_name": "mumu",
+  "start_url": "https://www.pikamumu.top/",
+  "display": "standalone",
+  "background_color": "#fef4eb",
+  "description": "青春无悔",
+  "orientation": "portrait-primary",
+  "theme_color": "#fef4eb",
+  "icons": [{
+      "src": "logo.png",
+      "sizes": "144x144",
+      "type": "image/png"
+  }]
+}
