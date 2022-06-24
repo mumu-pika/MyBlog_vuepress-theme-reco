@@ -62,18 +62,18 @@ module.exports = [
   ],
 
   // 背景樱花特效 https://github.com/JabinPeng/vuepress-plugin-sakura
-  [
-    'vuepress-plugin-sakura',
-    {
-      num: 16,  // 默认数量
-      show: true, //  是否显示
-      zIndex: -1,   // 层级
-      img: {
-        replace: false,  // false 默认图 true 换图 需要填写httpUrl地址
-        httpUrl: '...'     // 绝对路径
-      }
-    }
-  ],
+  // [
+  //   'vuepress-plugin-sakura',
+  //   {
+  //     num: 16,  // 默认数量
+  //     show: true, //  是否显示
+  //     zIndex: -1,   // 层级
+  //     img: {
+  //       replace: false,  // false 默认图 true 换图 需要填写httpUrl地址
+  //       httpUrl: '...'     // 绝对路径
+  //     }
+  //   }
+  // ],
 
   // Vuepress 音乐播放器插件 https://github.com/vuepress-reco/vuepress-plugin-bgm-player
   [
@@ -144,9 +144,9 @@ module.exports = [
   ],
   // 猫耳置顶插件
   // https://github.com/MisakaTAT/GoTop
-  [
-    'vuepress-plugin-go-top'
-  ],
+  // [
+  //   'vuepress-plugin-go-top'
+  // ],
 
   // PWA插件
   // https://github.com/vuejs/vuepress/tree/master/packages/%40vuepress/plugin-pwa
