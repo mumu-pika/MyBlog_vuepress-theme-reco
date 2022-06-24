@@ -62,62 +62,62 @@ module.exports = [
   ],
 
   // 背景樱花特效 https://github.com/JabinPeng/vuepress-plugin-sakura
-  // [
-  //   'vuepress-plugin-sakura',
-  //   {
-  //     num: 16,  // 默认数量
-  //     show: true, //  是否显示
-  //     zIndex: -1,   // 层级
-  //     img: {
-  //       replace: false,  // false 默认图 true 换图 需要填写httpUrl地址
-  //       httpUrl: '...'     // 绝对路径
-  //     }
-  //   }
-  // ],
-
-  // Vuepress 音乐播放器插件 https://github.com/vuepress-reco/vuepress-plugin-bgm-player
   [
-    '@vuepress-reco/vuepress-plugin-bgm-player',
+    'vuepress-plugin-sakura',
     {
-      audios: [
-        // 本地资源播放
-        // {
-        //     name: 'sorrow',
-        //     artist: 'hill',
-        //     url:'/audio/music/sorrow/hil - Sorrow.mp3',
-        //     cover:'/audio/music/sorrow/sorrowCover.jpg'
-        // },
-        // 网络资源获取
-        {
-          name: '夜空中最亮的星',
-          artist: '逃跑计划',
-          url: 'https://music.163.com/song/media/outer/url?id=25706282',
-          cover: 'http://p1.music.126.net/Eef2K2KV9dT3XUA6_Ve-Rw==/109951165543196748.jpg?param=130y130'
-        },
-        {
-          name: '最初的梦想',
-          artist: '我想和你唱',
-          url: 'https://music.163.com/song/media/outer/url?id=479422062',
-          cover: 'http://p1.music.126.net/9FhJLS1BrJdXAUJ2qjyJSg==/19212866183896782.jpg?param=130y130'
-        },
-        {
-          name: '屋顶',
-          artist: '周杰伦 / 温岚',
-          url: 'https://music.163.com/song/media/outer/url?id=5257138',
-          cover: 'http://p1.music.126.net/81BsxxhomJ4aJZYvEbyPkw==/109951165671182684.jpg?param=130y130'
-        },
-      ],
-      autoplay: false, //是否自动播放
-      autoShrink: true, //是否自动缩小
-      floatPosition: 'left', //指定浮窗模式浮动在哪一侧
-      // 播放器位置
-      position: {
-        left: '1rem',
-        bottom: '1rem',
-        'z-index': '99999'
+      num: 16,  // 默认数量
+      show: true, //  是否显示
+      zIndex: -1,   // 层级
+      img: {
+        replace: false,  // false 默认图 true 换图 需要填写httpUrl地址
+        httpUrl: '...'     // 绝对路径
       }
     }
   ],
+
+  // Vuepress 音乐播放器插件 https://github.com/vuepress-reco/vuepress-plugin-bgm-player
+  // [
+  //   '@vuepress-reco/vuepress-plugin-bgm-player',
+  //   {
+  //     audios: [
+  //       // 本地资源播放
+  //       // {
+  //       //     name: 'sorrow',
+  //       //     artist: 'hill',
+  //       //     url:'/audio/music/sorrow/hil - Sorrow.mp3',
+  //       //     cover:'/audio/music/sorrow/sorrowCover.jpg'
+  //       // },
+  //       // 网络资源获取
+  //       {
+  //         name: '夜空中最亮的星',
+  //         artist: '逃跑计划',
+  //         url: 'https://music.163.com/song/media/outer/url?id=25706282',
+  //         cover: 'http://p1.music.126.net/Eef2K2KV9dT3XUA6_Ve-Rw==/109951165543196748.jpg?param=130y130'
+  //       },
+  //       {
+  //         name: '最初的梦想',
+  //         artist: '我想和你唱',
+  //         url: 'https://music.163.com/song/media/outer/url?id=479422062',
+  //         cover: 'http://p1.music.126.net/9FhJLS1BrJdXAUJ2qjyJSg==/19212866183896782.jpg?param=130y130'
+  //       },
+  //       {
+  //         name: '屋顶',
+  //         artist: '周杰伦 / 温岚',
+  //         url: 'https://music.163.com/song/media/outer/url?id=5257138',
+  //         cover: 'http://p1.music.126.net/81BsxxhomJ4aJZYvEbyPkw==/109951165671182684.jpg?param=130y130'
+  //       },
+  //     ],
+  //     autoplay: false, //是否自动播放
+  //     autoShrink: true, //是否自动缩小
+  //     floatPosition: 'left', //指定浮窗模式浮动在哪一侧
+  //     // 播放器位置
+  //     position: {
+  //       left: '1rem',
+  //       bottom: '1rem',
+  //       'z-index': '99999'
+  //     }
+  //   }
+  // ],
 
   // 评论插件 这里选用valine, 主题已经预配置好，见 index.js
   // https://www.npmjs.com/package/@vuepress-reco/vuepress-plugin-comments
