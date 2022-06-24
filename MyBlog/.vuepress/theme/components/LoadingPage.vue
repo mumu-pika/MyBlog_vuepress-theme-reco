@@ -3,10 +3,10 @@
 <template>
   <div id="loader-wrapper">
     <!-- 吃豆豆显示区域 -->
-    <div class="loader-main">
+    <!-- <div class="loader-main">
       <div v-for="item in 4" :key="`out${item}`">
       </div>
-    </div>
+    </div> -->
     <!-- 标题区域 -->
     <div class="loadingTipsContainer" v-if="$frontmatter.home">
       <h3 class="title">{{$site.title || $localeConfig.title}}</h3>
