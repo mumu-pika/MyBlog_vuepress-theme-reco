@@ -87,7 +87,13 @@ module.exports = {
             "text": "微信公众号",
             "link": "https://mp.weixin.qq.com/s/tYV7BDCiLxyetAP6U44EYw",
             "icon": "reco-wechat"
-          }
+          },
+          {
+            "text": "语雀",
+            "link": "https://www.yuque.com/u28791688",
+            "icon": "reco-coding"
+          },
+
         ]
       }
     ],
