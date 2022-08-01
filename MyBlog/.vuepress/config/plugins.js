@@ -128,7 +128,7 @@ module.exports = [
   // 图片懒加载
   // https://github.com/tolking/vuepress-plugin-img-lazy
   [
-    'img-lazy'
+    'vuepress-plugin-img-lazy'
   ],
 
   // 代码块复制代码功能 掘金风格

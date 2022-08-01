@@ -17,6 +17,8 @@ export default ({
   install(Vue)
   Vue.mixin(postMixin)
   Vue.mixin(localMixin)
+
+  // 图片懒加载注册
   Vue.component(ImgLazy.name, ImgLazy)  //registered as global components
   // if (!isServer) {
   //   addScriptToHead('//kit.fontawesome.com/51b01de608.js')

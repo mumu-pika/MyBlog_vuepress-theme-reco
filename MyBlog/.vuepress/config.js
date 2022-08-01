@@ -9,6 +9,8 @@ module.exports = {
   "description": "mumu 's blog",  //网站描述，会在首次loading页面时加载
   "dest": "dist",  //vuepress build 的输出目录
   "head": [
+    // DNS 预解析 dns-prefetch , 是为了优化图片加载的速度
+    ["link", {"rel":"dns-prefetch", "href": "https://s2.loli.net"}],
     // 为document.head部分添加link标签
     ["link",{"rel": "icon", "href": "/favicon.ico"}],
     // deploying a manifest

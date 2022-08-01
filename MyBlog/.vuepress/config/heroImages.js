@@ -25,5 +25,4 @@ module.exports = [
     'https://s2.loli.net/2022/06/19/EZ4ciOGTg59mwSA.webp', // 城堡
     'https://s2.loli.net/2022/06/19/ULQJqtSs9pHDC6u.webp', // 少女守望
     'https://s2.loli.net/2022/06/19/HtJjduwRea8hxq9.webp', // 钢琴天堂
-
 ]
