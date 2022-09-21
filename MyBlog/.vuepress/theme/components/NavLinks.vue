@@ -212,7 +212,7 @@ export default defineComponent({
     width: 46vw
     // 注意，这里的hidden是必要的，保证能够滚动
     overflow: hidden
-    // 这里设置hover:vsible是为了.nav-item中的.dropdown-wrapper里的nav-dropdown能够显示
+    // 这里设置hover:visible是为了.nav-item中的.dropdown-wrapper里的nav-dropdown能够显示
     &:hover
       overflow: visible
     .nav-links
