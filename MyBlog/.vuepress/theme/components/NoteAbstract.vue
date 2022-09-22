@@ -1,5 +1,6 @@
 <template>
   <div class="abstract-wrapper">
+  <!-- 遍历文章并展示博客文章 -->
     <NoteAbstractItem
       v-for="(item) in currentPageData"
       :key="item.path"

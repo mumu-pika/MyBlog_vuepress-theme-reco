@@ -187,7 +187,7 @@ export default defineComponent({
     //     : initBgImageStyle;
     // });
 
-    // 自定义修改的背景图片设置
+    // 自定义修改的背景图片设置, 随机产生一张图片
     const bgImageStyle = computed(() => {
       const url = instance.$themeConfig.heroImages[Math.floor(Math.random()*instance.$themeConfig.heroImages.length)]
         ? instance.$withBase(instance.$themeConfig.heroImages[Math.floor(Math.random()*instance.$themeConfig.heroImages.length)])

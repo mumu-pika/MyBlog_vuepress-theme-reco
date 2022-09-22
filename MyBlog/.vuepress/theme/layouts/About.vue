@@ -1,6 +1,7 @@
 <!-- 留言板组件 -->
 <template>
   <!-- 公共布局 -->
+  <!-- $withBase是Vuepress的工具函数, 见https://v2.vuepress.vuejs.org/zh/guide/assets.html#public-%E6%96%87%E4%BB%B6 -->
   <Common :sidebar="false">
     <div class="container">
       <div class="author-social">
