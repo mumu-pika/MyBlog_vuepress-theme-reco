@@ -130,10 +130,10 @@ module.exports = {
         "link": "https://www.recoluan.com"
       },
       {
-        "title": "vuepress-theme-reco",
-        "desc": "A simple and beautiful vuepress Blog & Doc theme.",
-        "avatar": "https://vuepress-theme-reco.recoluan.com/icon_vuepress_reco.png",
-        "link": "https://vuepress-theme-reco.recoluan.com"
+        "title": "ssw’s Blog",
+        "desc": "ssw’s Blog",
+        "logo": "http://ssw.fit/pic/vehicle.jpeg",
+        "link": "http://ssw.fit/"
       }
     ],
     // 社交信息
