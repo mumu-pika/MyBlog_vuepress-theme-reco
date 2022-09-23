@@ -45,6 +45,7 @@ import md5 from 'md5'
 import { getOneColor } from '@theme/helpers/other'
 import { useInstance } from '@theme/helpers/composable'
 
+// 这里的useDetail是一个个友链详情
 const useDetail = () => {
   const instance = useInstance()
   const isPC = ref(true)
