@@ -24,6 +24,10 @@ module.exports = {
     // ['meta', { name: 'msapplication-TileColor', content: '#000000' }]
     // 移动端优化，（搜索框在获得焦点时会放大，并且在失去焦点后可以左右滚动，优化）
     ["meta", { "name": "viewport", "content": "width=device-width,initial-scale=1,user-scalable=no"}],
+    // 百度SEO优化
+    ["meta", { "name": "baidu-site-verification", "content": "code-CekZJFvXZM"}],
+    ["meta", { "name": "description", "content": "【木木的秘密花园】这里是木木的个人博客, 分享前端开发、个人生活的博客。欢迎来交换友链~ 一起学习进步！"}],
+    ["meta", { "name": "keywords", "content": "博客_vuepress搭建个人博客_reco主题"}],
     // 添加script标签
     // 每日一词的script标签 https://www.jinrishici.com/
     [
