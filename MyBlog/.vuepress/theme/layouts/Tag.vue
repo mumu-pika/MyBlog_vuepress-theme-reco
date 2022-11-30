@@ -7,7 +7,8 @@
         v-show="recoShowModule"
         class="tags"
         :currentTag="$currentTags.key"
-        @getCurrentTag="tagClick"></TagList>
+        @getCurrentTag="tagClick"
+      ></TagList>
     </ModuleTransition>
 
     <!-- 博客列表 -->
@@ -17,7 +18,8 @@
         class="list"
         :data="posts"
         :currentTag="$currentTags.key"
-        @paginationChange="paginationChange"></note-abstract>
+        @paginationChange="paginationChange"
+      ></note-abstract>
     </ModuleTransition>
   </Common>
 </template>
@@ -36,7 +38,7 @@ export default defineComponent({
   mixins: [moduleTransitonMixin],
   components: { Common, NoteAbstract, TagList, ModuleTransition },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     // 时间降序后的博客列表
@@ -47,17 +49,17 @@ export default defineComponent({
       return posts
     })
 
-    const getCurrentTag = (tag) => {
+    const getCurrentTag = tag => {
       ctx.emit('currentTag', tag)
     }
 
-    const tagClick = (tagInfo) => {
+    const tagClick = tagInfo => {
       if (instance.$route.path !== tagInfo.path) {
         instance.$router.push({ path: tagInfo.path })
       }
     }
 
-    const paginationChange = (page) => {
+    const paginationChange = page => {
       setTimeout(() => {
         window.scrollTo(0, 0)
       }, 100)

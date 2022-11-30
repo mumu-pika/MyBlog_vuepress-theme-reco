@@ -16,43 +16,42 @@
 
 <script>
 // <script type="text/javascript" src="https://cdn.bootcss.com/history/4.7.2/history.js"/>
-import Common from "@theme/components/Common";
-import ModuleTransition from "@theme/components/ModuleTransition";
-import Comments from "@theme/components/Comments/Comments.vue";
+import Common from '@theme/components/Common'
+import ModuleTransition from '@theme/components/ModuleTransition'
+import Comments from '@theme/components/Comments/Comments.vue'
 
 export default {
-  name: "RouterBasics",
+  name: 'RouterBasics',
   components: { Common, ModuleTransition, Comments },
 
   computed: {},
 
   methods: {
-    push (path) {
+    push(path) {
       // 压入历史记录
-			history.push(path)
+      history.push(path)
       // 禁止a标签跳转
-			return false
-		},
-    replace (path) {
-			history.replace(path)
-		},
+      return false
+    },
+    replace(path) {
+      history.replace(path)
+    },
     back() {
-			history.goBack()
-		},
+      history.goBack()
+    },
     forword() {
-			history.goForward()
-		}
-
+      history.goForward()
+    }
   },
   mounted() {
     // 这个history 最终操作了BOM身上的history
-		// let history = History.createBrowserHistory() //方法一，直接使用H5推出的history身上的API，在一些旧的浏览器不支持用history去操作浏览器的history
+    // let history = History.createBrowserHistory() //方法一，直接使用H5推出的history身上的API，在一些旧的浏览器不支持用history去操作浏览器的history
     // 浏览器的历史记录是栈的结构
-		let history = History.createHashHistory() //方法二，hash值（锚点）锚点跳转不会引起页面的刷新，但是能够留下历史记录
+    let history = History.createHashHistory() //方法二，hash值（锚点）锚点跳转不会引起页面的刷新，但是能够留下历史记录
   },
 
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style src="../styles/theme.styl" lang="stylus"></style>
@@ -68,5 +67,4 @@ export default {
   align-items: center
   padding: 0 2rem
   height: 90vh
-
 </style>

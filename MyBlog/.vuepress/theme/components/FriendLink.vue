@@ -6,18 +6,13 @@
       :key="index"
       @mouseenter="showDetail($event)"
       @mouseleave="hideDetail($event)"
-      target="_blank">
-      <span
-        class="list-style"
-        :style="{ 'backgroundColor': item.color }">
-      </span>
-      {{item.title}}
+      target="_blank"
+    >
+      <span class="list-style" :style="{ backgroundColor: item.color }"> </span>
+      {{ item.title }}
       <transition name="fade">
         <div class="popup-window-wrapper">
-          <div
-            class="popup-window"
-            :style="popupWindowStyle"
-            ref="popupWindow">
+          <div class="popup-window" :style="popupWindowStyle" ref="popupWindow">
             <div class="logo">
               <img :src="getImgUrl(item)" />
             </div>
@@ -26,9 +21,11 @@
                 <h4>{{ item.title }}</h4>
                 <a
                   class="btn-go"
-                  :style="{ 'backgroundColor': item.color }"
+                  :style="{ backgroundColor: item.color }"
                   :href="item.link"
-                  target="_blank">GO</a>
+                  target="_blank"
+                  >GO</a
+                >
               </div>
               <p v-if="item.desc">{{ item.desc }}</p>
             </div>
@@ -55,7 +52,7 @@ const useDetail = () => {
     top: 0
   })
 
-  const adjustPosition = (dom) => {
+  const adjustPosition = dom => {
     const { offsetWidth } = document.body
     const { x, width } = dom.getBoundingClientRect()
     const distanceToRight = offsetWidth - (x + width)
@@ -66,7 +63,7 @@ const useDetail = () => {
     }
   }
 
-  const showDetail = (e) => {
+  const showDetail = e => {
     const currentDom = e.target
     const popupWindowWrapper = currentDom.querySelector('.popup-window-wrapper')
     popupWindowWrapper.style.display = 'block'
@@ -98,25 +95,28 @@ const useDetail = () => {
       infoWrapper.style.overflow = 'hidden'
       const left = getPosition(currentDom).left - getPosition(infoWrapper).left
 
-      popupWindowStyle.left = (-left + (infoWrapper.clientWidth - popupWindow.clientWidth) / 2) + 'px'
+      popupWindowStyle.left =
+        -left + (infoWrapper.clientWidth - popupWindow.clientWidth) / 2 + 'px'
       popupWindowStyle.top = -windowHeight + 'px'
     }
   }
 
-  const hideDetail = (e) => {
+  const hideDetail = e => {
     const currentDom = e.target.querySelector('.popup-window-wrapper')
     currentDom.style.display = 'none'
   }
 
   onMounted(() => {
-    isPC.value = !/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)
+    isPC.value = !/Android|webOS|iPhone|iPod|BlackBerry/i.test(
+      navigator.userAgent
+    )
   })
 
   return { popupWindowStyle, showDetail, hideDetail }
 }
 
 export default defineComponent({
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const { popupWindowStyle, showDetail, hideDetail } = useDetail()
@@ -129,7 +129,7 @@ export default defineComponent({
       })
     })
 
-    const getImgUrl = (info) => {
+    const getImgUrl = info => {
       const { logo = '', email = '' } = info
       if (logo && /^http/.test(logo)) return logo
       if (logo && !/^http/.test(logo)) return instance.$withBase(logo)

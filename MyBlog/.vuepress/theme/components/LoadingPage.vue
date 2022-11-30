@@ -9,25 +9,24 @@
     </div> -->
     <!-- 标题区域 -->
     <div class="loadingTipsContainer" v-if="$frontmatter.home">
-      <h3 class="title">{{$site.title || $localeConfig.title}}</h3>
-      <p class="description">{{$site.description || $localeConfig.description}}</p>
+      <h3 class="title">{{ $site.title || $localeConfig.title }}</h3>
+      <p class="description">
+        {{ $site.description || $localeConfig.description }}
+      </p>
     </div>
     <div class="loadingImageContainer">
-        <img src="../images/pikachu-running.gif"/>
+      <img src="../images/pikachu-running.gif" />
     </div>
   </div>
 </template>
 
 <script>
-import { defineComponent } from "vue-demi";
+import { defineComponent } from 'vue-demi'
 
 // import { useInstance } from '@theme/helpers/composable'
 
-export default defineComponent({
-
-})
+export default defineComponent({})
 </script>
-
 
 <style lang="stylus" scoped>
 #loader-wrapper

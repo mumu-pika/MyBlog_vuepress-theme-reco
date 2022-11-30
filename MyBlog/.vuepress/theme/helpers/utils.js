@@ -4,9 +4,7 @@ export const endingSlashRE = /\/$/
 export const outboundRE = /^(https?:|mailto:|tel:)/
 
 export function normalize(path) {
-  return decodeURI(path)
-    .replace(hashRE, '')
-    .replace(extRE, '')
+  return decodeURI(path).replace(hashRE, '').replace(extRE, '')
 }
 
 export function getHash(path) {
@@ -66,7 +64,9 @@ export function resolvePage(pages, rawPath, base) {
       })
     }
   }
-  console.error(`[vuepress] No matching page found for sidebar item "${rawPath}"`)
+  console.error(
+    `[vuepress] No matching page found for sidebar item "${rawPath}"`
+  )
   return {}
 }
 
@@ -118,16 +118,15 @@ function resolvePath(relative, base, append) {
 export function resolveSidebarItems(page, regularPath, site, localePath) {
   const { pages, themeConfig } = site
 
-  const localeConfig = localePath && themeConfig.locales
-    ? themeConfig.locales[localePath] || themeConfig
-    : themeConfig
+  const localeConfig =
+    localePath && themeConfig.locales
+      ? themeConfig.locales[localePath] || themeConfig
+      : themeConfig
 
   const sidebarConfig = localeConfig.sidebar || themeConfig.sidebar
 
   const { base, config } = resolveMatchingConfig(regularPath, sidebarConfig)
-  return config
-    ? config.map(item => resolveItem(item, pages, base))
-    : []
+  return config ? config.map(item => resolveItem(item, pages, base)) : []
 }
 
 export function groupHeaders(headers) {
@@ -138,7 +137,7 @@ export function groupHeaders(headers) {
     if (h.level === 2) {
       lastH2 = h
     } else if (lastH2) {
-      (lastH2.children || (lastH2.children = [])).push(h)
+      ;(lastH2.children || (lastH2.children = [])).push(h)
     }
   })
   return headers.filter(h => h.level === 2)
@@ -177,7 +176,9 @@ export function formatDate(time, fmt = 'yyyy-MM-dd hh:mm:ss') {
   time = time.replace(/-/g, '/')
   const date = new Date(time)
   if (/(y+)/.test(fmt)) {
-    fmt = fmt.replace(RegExp.$1, date.getFullYear() + '').substr(4 - RegExp.$1.length)
+    fmt = fmt
+      .replace(RegExp.$1, date.getFullYear() + '')
+      .substr(4 - RegExp.$1.length)
   }
 
   const o = {
@@ -229,9 +230,7 @@ export function addScriptToHead(href) {
 }
 
 function ensureEndingSlash(path) {
-  return /(\.html|\/)$/.test(path)
-    ? path
-    : path + '/'
+  return /(\.html|\/)$/.test(path) ? path : path + '/'
 }
 
 function resolveItem(item, pages, base, groupDepth = 1) {
@@ -243,9 +242,7 @@ function resolveItem(item, pages, base, groupDepth = 1) {
     })
   } else {
     if (groupDepth > 3) {
-      console.error(
-        '[vuepress] detected a too deep nested sidebar group.'
-      )
+      console.error('[vuepress] detected a too deep nested sidebar group.')
     }
     const children = item.children || []
     if (children.length === 0 && item.path) {
@@ -258,7 +255,9 @@ function resolveItem(item, pages, base, groupDepth = 1) {
       path: item.path,
       title: item.title,
       sidebarDepth: item.sidebarDepth,
-      children: children.map(child => resolveItem(child, pages, base, groupDepth + 1)),
+      children: children.map(child =>
+        resolveItem(child, pages, base, groupDepth + 1)
+      ),
       collapsable: item.collapsable !== false
     }
   }
@@ -369,11 +368,11 @@ export function circleMagic(options) {
   function Circle() {
     const that = this
 
-      // constructor
-      ; (function () {
-        that.pos = {}
-        init()
-      })()
+    // constructor
+    ;(function () {
+      that.pos = {}
+      init()
+    })()
 
     function init() {
       that.pos.x = Math.random() * width
@@ -409,8 +408,6 @@ export function circleMagic(options) {
     }
   }
 }
-
-
 
 // 打字效果
 // export function typingMagic() {

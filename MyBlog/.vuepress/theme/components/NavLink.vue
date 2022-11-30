@@ -4,7 +4,8 @@
     class="nav-link"
     :to="link"
     v-if="!isExternal(link)"
-    :exact="exact">
+    :exact="exact"
+  >
     <reco-icon :icon="`${item.icon}`" />
     {{ item.text }}
   </router-link>
@@ -17,7 +18,7 @@
   >
     <reco-icon :icon="`${item.icon}`" />
     {{ item.text }}
-    <OutboundLink/>
+    <OutboundLink />
   </a>
 </template>
 
@@ -36,7 +37,7 @@ export default defineComponent({
     }
   },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const { item } = toRefs(props)
@@ -45,7 +46,9 @@ export default defineComponent({
 
     const exact = computed(() => {
       if (instance.$site.locales) {
-        return Object.keys(instance.$site.locales).some(rootLink => rootLink === link.value)
+        return Object.keys(instance.$site.locales).some(
+          rootLink => rootLink === link.value
+        )
       }
       return link.value === '/'
     })

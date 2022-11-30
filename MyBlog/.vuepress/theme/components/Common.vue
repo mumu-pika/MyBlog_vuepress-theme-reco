@@ -64,55 +64,55 @@
 </template>
 
 <script>
-import { defineComponent, computed, ref, onMounted, toRefs } from "vue-demi";
-import Navbar from "@theme/components/Navbar";
-import Sidebar from "@theme/components/Sidebar";
-import PersonalInfo from "@theme/components/PersonalInfo";
-import Password from "@theme/components/Password";
-import { setTimeout } from "timers";
-import { useInstance } from "@theme/helpers/composable";
+import { defineComponent, computed, ref, onMounted, toRefs } from 'vue-demi'
+import Navbar from '@theme/components/Navbar'
+import Sidebar from '@theme/components/Sidebar'
+import PersonalInfo from '@theme/components/PersonalInfo'
+import Password from '@theme/components/Password'
+import { setTimeout } from 'timers'
+import { useInstance } from '@theme/helpers/composable'
 
-import LoadingPage from "@theme/components/LoadingPage"
+import LoadingPage from '@theme/components/LoadingPage'
 
 export default defineComponent({
-  components: { Sidebar, Navbar, Password, PersonalInfo, LoadingPage},
+  components: { Sidebar, Navbar, Password, PersonalInfo, LoadingPage },
 
   props: {
     sidebar: {
       type: Boolean,
-      default: true,
+      default: true
     },
     sidebarItems: {
       type: Array,
-      default: () => [],
+      default: () => []
     },
     showModule: {
       type: Boolean,
-      default: false,
-    },
+      default: false
+    }
   },
 
   setup(props, ctx) {
-    const instance = useInstance();
+    const instance = useInstance()
 
-    const isSidebarOpen = ref(false);
-    const isHasKey = ref(true);
-    const isHasPageKey = ref(true);
-    const firstLoad = ref(true);
+    const isSidebarOpen = ref(false)
+    const isHasKey = ref(true)
+    const isHasPageKey = ref(true)
+    const firstLoad = ref(true)
 
-    const shouldShowSidebar = computed(() => props.sidebarItems.length > 0);
+    const shouldShowSidebar = computed(() => props.sidebarItems.length > 0)
     const absoluteEncryption = computed(() => {
       return (
         instance.$themeConfig.keyPage &&
         instance.$themeConfig.keyPage.absoluteEncryption === true
-      );
-    });
+      )
+    })
     const shouldShowNavbar = computed(() => {
-      const { themeConfig } = instance.$site;
-      const { frontmatter } = instance.$page;
+      const { themeConfig } = instance.$site
+      const { frontmatter } = instance.$page
 
       if (frontmatter.navbar === false || themeConfig.navbar === false)
-        return false;
+        return false
 
       return (
         instance.$title ||
@@ -120,87 +120,87 @@ export default defineComponent({
         themeConfig.repo ||
         themeConfig.nav ||
         instance.$themeLocaleConfig.nav
-      );
-    });
+      )
+    })
 
     const pageClasses = computed(() => {
       const classValue = {
-        "no-navbar": !shouldShowNavbar.value,
-        "sidebar-open": isSidebarOpen.value,
-        "no-sidebar": !shouldShowSidebar.value,
-      };
+        'no-navbar': !shouldShowNavbar.value,
+        'sidebar-open': isSidebarOpen.value,
+        'no-sidebar': !shouldShowSidebar.value
+      }
 
-      const { pageClass: userPageClass } = instance.$frontmatter || {};
-      if (userPageClass) classValue[userPageClass] = true;
+      const { pageClass: userPageClass } = instance.$frontmatter || {}
+      if (userPageClass) classValue[userPageClass] = true
 
-      return classValue;
-    });
+      return classValue
+    })
 
     const hasKey = () => {
-      const { keyPage } = instance.$themeConfig;
+      const { keyPage } = instance.$themeConfig
       if (!keyPage || !keyPage.keys || keyPage.keys.length === 0) {
-        isHasKey.value = true;
-        return;
+        isHasKey.value = true
+        return
       }
 
-      let { keys } = keyPage;
-      keys = keys.map((item) => item.toLowerCase());
-      isHasKey.value = keys && keys.indexOf(sessionStorage.getItem("key")) > -1;
-    };
+      let { keys } = keyPage
+      keys = keys.map(item => item.toLowerCase())
+      isHasKey.value = keys && keys.indexOf(sessionStorage.getItem('key')) > -1
+    }
     const initRouterHandler = () => {
       instance.$router.afterEach(() => {
-        isSidebarOpen.value = false;
-      });
-    };
+        isSidebarOpen.value = false
+      })
+    }
     const hasPageKey = () => {
-      let pageKeys = instance.$frontmatter.keys;
+      let pageKeys = instance.$frontmatter.keys
       if (!pageKeys || pageKeys.length === 0) {
-        isHasPageKey.value = true;
-        return;
+        isHasPageKey.value = true
+        return
       }
 
-      pageKeys = pageKeys.map((item) => item.toLowerCase());
+      pageKeys = pageKeys.map(item => item.toLowerCase())
 
       isHasPageKey.value =
         pageKeys.indexOf(
           sessionStorage.getItem(`pageKey${window.location.pathname}`)
-        ) > -1;
-    };
-    const toggleSidebar = (to) => {
-      isSidebarOpen.value = typeof to === "boolean" ? to : !isSidebarOpen.value;
-    };
+        ) > -1
+    }
+    const toggleSidebar = to => {
+      isSidebarOpen.value = typeof to === 'boolean' ? to : !isSidebarOpen.value
+    }
 
     // 处理Loading, 这里会在SessionStorage中创建一个key为"firstLoad"。
     const handleLoading = () => {
       const time =
         instance.$frontmatter.home &&
-        sessionStorage.getItem("firstLoad") == undefined
+        sessionStorage.getItem('firstLoad') == undefined
           ? 1000
-          : 0;
+          : 0
       // 设置定时器，自动设置firstLoad为false, 标识为非首次加载当前页面
       setTimeout(() => {
-        firstLoad.value = false;
-        if (sessionStorage.getItem("firstLoad") == undefined)
-          sessionStorage.setItem("firstLoad", false);
-      }, time);
-    };
+        firstLoad.value = false
+        if (sessionStorage.getItem('firstLoad') == undefined)
+          sessionStorage.setItem('firstLoad', false)
+      }, time)
+    }
 
     // 首次渲染时，recoShowModule 直接为 true，否则锚点失效
-    const { showModule } = toRefs(props);
+    const { showModule } = toRefs(props)
     const recoShowModule = computed(() => {
       if (firstLoad.value) {
-        return true;
+        return true
       } else {
-        return showModule.value;
+        return showModule.value
       }
-    });
+    })
 
     onMounted(() => {
-      initRouterHandler();
-      hasKey();
-      hasPageKey();
-      handleLoading();
-    });
+      initRouterHandler()
+      hasKey()
+      hasPageKey()
+      handleLoading()
+    })
 
     return {
       isSidebarOpen,
@@ -214,17 +214,17 @@ export default defineComponent({
       isHasPageKey,
       toggleSidebar,
       firstLoad,
-      recoShowModule,
-    };
+      recoShowModule
+    }
   },
 
   watch: {
     $frontmatter(newVal, oldVal) {
-      this.hasKey();
-      this.hasPageKey();
-    },
-  },
-});
+      this.hasKey()
+      this.hasPageKey()
+    }
+  }
+})
 </script>
 
 <style lang="stylus" scoped>

@@ -1,8 +1,8 @@
 <template>
   <div class="abstract-wrapper">
-  <!-- 遍历文章并展示博客文章 -->
+    <!-- 遍历文章并展示博客文章 -->
     <NoteAbstractItem
-      v-for="(item) in currentPageData"
+      v-for="item in currentPageData"
       :key="item.path"
       :item="item"
       :currentPage="currentPage"
@@ -28,7 +28,7 @@ export default defineComponent({
   components: { NoteAbstractItem },
   props: ['data', 'currentTag'],
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const { data } = toRefs(props)
@@ -42,7 +42,7 @@ export default defineComponent({
       return data.value.slice(start, end)
     })
 
-    const getCurrentPage = (page) => {
+    const getCurrentPage = page => {
       currentPage.value = page
       instance._setStoragePage(page)
       // 发射事件paginationChange
@@ -56,7 +56,7 @@ export default defineComponent({
     return { currentPage, currentPageData, getCurrentPage }
   },
   watch: {
-    $route () {
+    $route() {
       this.currentPage = this._getStoragePage() || 1
     }
   }

@@ -8,7 +8,9 @@
         :key="index"
         :class="getClass(mode.mode)"
         @click="selectMode(mode.mode)"
-      >{{ mode.title }}</li>
+      >
+        {{ mode.title }}
+      </li>
     </ul>
   </div>
 </template>
@@ -18,7 +20,7 @@ import applyMode from './applyMode'
 export default {
   name: 'ModeOptions',
 
-  data () {
+  data() {
     return {
       modeOptions: [
         { mode: 'dark', title: 'dark' },
@@ -29,9 +31,10 @@ export default {
     }
   },
 
-  mounted () {
+  mounted() {
     // modePicker 开启时默认使用用户主动设置的模式
-    this.currentMode = localStorage.getItem('mode') || this.$themeConfig.mode || 'auto'
+    this.currentMode =
+      localStorage.getItem('mode') || this.$themeConfig.mode || 'auto'
 
     // Dark and Light autoswitches
     // 为了避免在 server-side 被执行，故在 Vue 组件中设置监听器
@@ -47,14 +50,14 @@ export default {
   },
 
   methods: {
-    selectMode (mode) {
+    selectMode(mode) {
       if (mode !== this.currentMode) {
         this.currentMode = mode
         applyMode(mode)
         localStorage.setItem('mode', mode)
       }
     },
-    getClass (mode) {
+    getClass(mode) {
       return mode !== this.currentMode ? mode : `${mode} active`
     }
   }

@@ -5,11 +5,11 @@
   <div class="valine-wrapper">
     <!-- 诗词区域 -->
     <div class="poemContainer">
-      <span class="poemContent fzzj">{{poem.poemContent}}</span>
-      <span class="poemTitle">「{{poem.poemTitle}}」</span>
+      <span class="poemContent fzzj">{{ poem.poemContent }}</span>
+      <span class="poemTitle">「{{ poem.poemTitle }}」</span>
       <div class="poemInfoContainer">
-        <span class="poemDynasty">{{poem.dynasty}}</span>
-        <span class="poemPoet">{{poem.poet}}</span>
+        <span class="poemDynasty">{{ poem.dynasty }}</span>
+        <span class="poemPoet">{{ poem.poet }}</span>
       </div>
     </div>
     <!-- valine区域 -->
@@ -21,38 +21,37 @@
 </template>
 <script>
 // import { getOneBgc } from '@theme/helpers/other'
-const bilibiliEmoji = require("@theme/lib/bilibiliEmoji.js")
+const bilibiliEmoji = require('@theme/lib/bilibiliEmoji.js')
 
 export default {
-  name: "Valine",
+  name: 'Valine',
   props: {
     options: {
       type: Object,
       default() {
-        return {};
-      },
-    },
+        return {}
+      }
+    }
   },
-  data(){
+  data() {
     return {
-      poem:{
-        poemContent: "与君歌一曲，请君为我倾耳听",  //诗词内容
-        poemTitle: "将进酒",    //诗词题目
-        dynasty: '唐',         //诗词朝代
-        poet: '李白',          //诗人或词人
-
+      poem: {
+        poemContent: '与君歌一曲，请君为我倾耳听', //诗词内容
+        poemTitle: '将进酒', //诗词题目
+        dynasty: '唐', //诗词朝代
+        poet: '李白' //诗人或词人
       }
     }
   },
   mounted: function () {
-    this.initValine();
+    this.initValine()
   },
   methods: {
     // valine 官方文档地址：https://valine.js.org/configuration.html
     // Serverless云服务：https://www.leancloud.cn/
     // 今日诗词文档 https://www.jinrishici.com/
     initValine() {
-      const Valine = require("valine");
+      const Valine = require('valine')
       var that = this
       // 获取今日诗词
       jinrishici.load(function (result) {
@@ -62,15 +61,15 @@ export default {
         that.poem.poet = result.data.origin.author
         // document.getElementById("veditor").setAttribute("placeholder", poem)
         // document.getElementById("poemContent").setAttribute("innerText", poem)
-      });
+      })
       const valineOptions = {
-        el: "#valine", //指定dom元素
-        appId: "l1TQa0cVg7KMYNiBJnd5HBpk-9Nh9j0Va", //appId, 注册登录leanCloud后获取
-        appKey: "S502GjMdAgHTdWwUoFSnEcsM", //appKey, 注册登录leanCloud后获取
-        placeholder: "", //Comment box  placeholder
+        el: '#valine', //指定dom元素
+        appId: 'l1TQa0cVg7KMYNiBJnd5HBpk-9Nh9j0Va', //appId, 注册登录leanCloud后获取
+        appKey: 'S502GjMdAgHTdWwUoFSnEcsM', //appKey, 注册登录leanCloud后获取
+        placeholder: '', //Comment box  placeholder
         notify: false,
         verify: false,
-        avatar: "monsterid", //avatar 头像配置，Valine 目前使用的是Gravatar 作为评论列表头像。
+        avatar: 'monsterid', //avatar 头像配置，Valine 目前使用的是Gravatar 作为评论列表头像。
         pageSize: 10, //评论列表分页，每页条数, 默认值为10
         visitor: true, //文章访问统计, 默认值为关闭false
         highlight: true, //代码高亮，默认值开启为true
@@ -78,11 +77,11 @@ export default {
         path: window.location.pathname,
         // 表情title和图片映射
         emojiMaps: bilibiliEmoji,
-        ...this.options,
-      };
+        ...this.options
+      }
 
-      new Valine(valineOptions);
-    },
+      new Valine(valineOptions)
+    }
     // 随机获取一种背景颜色
     // getOneBgc
   },
@@ -92,12 +91,12 @@ export default {
         // 切换页面时刷新评论
         // this.$router.go(0)
         setTimeout(() => {
-          this.initValine();
-        }, 300);
+          this.initValine()
+        }, 300)
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style lang="stylus">

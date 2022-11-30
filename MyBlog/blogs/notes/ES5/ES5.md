@@ -3,7 +3,6 @@ title: ES5严格模式相关
 date: 2020-2-12
 tags:
  - ES5
- - 严格模式
 categories:
  - ES5
 ---

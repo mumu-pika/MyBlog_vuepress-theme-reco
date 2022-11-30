@@ -23,7 +23,7 @@ const modeOptions = {
     '--poem-color': 'rgba(168, 210, 252, 0.5)',
     '--comment-background-color': 'rgba(181, 234, 191, 0.1)',
     '--comment-userInfo-color': '#fd7cf9ee',
-    '--comment-text-color':'#350000ff'
+    '--comment-text-color': '#350000ff'
   },
   dark: {
     '--default-color-10': 'rgba(0, 0, 0, 1)',
@@ -48,8 +48,7 @@ const modeOptions = {
     '--poem-color': 'rgba(169, 254, 240, 0.3)',
     '--comment-background-color': 'rgba(147, 195, 247, 0.1)',
     '--comment-userInfo-color': '#d8eefe',
-    '--comment-text-color':'#ffe9e9'
-
+    '--comment-text-color': '#ffe9e9'
   }
 }
 

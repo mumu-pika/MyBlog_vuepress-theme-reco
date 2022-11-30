@@ -2,7 +2,7 @@ import { zhHans, zhHant, en, ja, ko, es } from '../locales/index'
 
 export default {
   computed: {
-    $recoLocales () {
+    $recoLocales() {
       const recoLocales = this.$themeLocaleConfig.recoLocales || {}
 
       if (/^zh\-(CN|SG)$/.test(this.$lang)) {

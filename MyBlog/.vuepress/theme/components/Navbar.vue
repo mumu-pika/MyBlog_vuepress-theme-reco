@@ -2,35 +2,40 @@
 <template>
   <header class="navbar">
     <!-- 侧边栏菜单按钮 -->
-    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
+    <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')" />
     <!-- 导航栏左侧网站信息，包括头像，网站名称等 -->
-    <router-link
-      :to="$localePath"
-      class="home-link">
+    <router-link :to="$localePath" class="home-link">
       <img
         class="logo"
         v-if="$themeConfig.logo"
         :src="$withBase($themeConfig.logo)"
-        :alt="$siteTitle">
-      <span
-        ref="siteName"
-        class="site-name"
-        v-if="$siteTitle">{{ $siteTitle }}</span>
+        :alt="$siteTitle"
+      />
+      <span ref="siteName" class="site-name" v-if="$siteTitle">{{
+        $siteTitle
+      }}</span>
     </router-link>
     <div
       class="links"
-      :style="linksWrapMaxWidth ? {
-        'max-width': linksWrapMaxWidth + 'px'
-      } : {}">
+      :style="
+        linksWrapMaxWidth
+          ? {
+              'max-width': linksWrapMaxWidth + 'px'
+            }
+          : {}
+      "
+    >
       <!-- 切换白天黑夜的模式 -->
       <!-- <Mode /> -->
       <DayAndNight />
-      <AlgoliaSearchBox
-        v-if="isAlgoliaSearch"
-        :options="algolia"/>
-      <SearchBox v-else-if="$themeConfig.search !== false && $frontmatter.search !== false"/>
+      <AlgoliaSearchBox v-if="isAlgoliaSearch" :options="algolia" />
+      <SearchBox
+        v-else-if="
+          $themeConfig.search !== false && $frontmatter.search !== false
+        "
+      />
       <!-- 导航栏主体部分，这里考虑引入better-scroll, 来解决导航栏移动端滚动-->
-      <NavLinks class="can-hide"/>
+      <NavLinks class="can-hide" />
     </div>
   </header>
 </template>
@@ -46,24 +51,36 @@ import { useInstance } from '@theme/helpers/composable'
 import DayAndNight from '@theme/components/DayAndNight'
 
 // 引入滚动条组件
-import Scroll from "@theme/components/Scroll.vue"
+import Scroll from '@theme/components/Scroll.vue'
 
 export default defineComponent({
-  components: { SidebarButton, NavLinks, SearchBox, AlgoliaSearchBox, Mode, Scroll, DayAndNight },
+  components: {
+    SidebarButton,
+    NavLinks,
+    SearchBox,
+    AlgoliaSearchBox,
+    Mode,
+    Scroll,
+    DayAndNight
+  },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
     const linksWrapMaxWidth = ref(null)
 
     const algolia = computed(() => {
-      return instance.$themeLocaleConfig.algolia || instance.$themeConfig.algolia || {}
+      return (
+        instance.$themeLocaleConfig.algolia ||
+        instance.$themeConfig.algolia ||
+        {}
+      )
     })
 
     const isAlgoliaSearch = computed(() => {
       algolia.value && algolia.value.apiKey && algolia.value.indexName
     })
 
-    function css (el, property) {
+    function css(el, property) {
       // NOTE: Known bug, will return 'auto' if style value is 'auto'
       const win = el.ownerDocument.defaultView
       // null means not to return pseudo styles
@@ -83,7 +100,8 @@ export default defineComponent({
           linksWrapMaxWidth.value =
             instance.$el.offsetWidth -
             NAVBAR_VERTICAL_PADDING -
-            (instance.$refs.siteName && instance.$refs.siteName.offsetWidth || 0)
+            ((instance.$refs.siteName && instance.$refs.siteName.offsetWidth) ||
+              0)
         }
       }
 
@@ -165,5 +183,4 @@ $navbar-horizontal-padding = 1.5rem
       right 0.5rem
       top $navbar-vertical-padding
       background var(--background-color)
-
 </style>

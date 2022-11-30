@@ -3,12 +3,14 @@
   "version": "1.0.0",
   "author": "reco_luan",
   "scripts": {
+    "start": "yarn dev",
     "dev": "vuepress dev MyBlog/. --open --host \"localhost\"",
     "build": "vuepress build MyBlog/."
   },
   "devDependencies": {
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
     "@vuepress/plugin-pwa": "^1.9.7",
+    "prettier": "2.8.0",
     "vue-canvas-effect": "^0.0.12",
     "vuepress": "1.8.2",
     "vuepress-plugin-boxx": "^0.0.7",
@@ -20,10 +22,16 @@
   },
   "description": "mumu 's blog",
   "dependencies": {
+    "@vue/compiler-dom": "^3.2.45",
     "@vuepress-reco/vuepress-plugin-bgm-player": "^1.1.4",
     "better-scroll": "^2.4.2",
     "typed.js": "^2.0.12",
     "vuepress-plugin-img-lazy": "^1.0.4",
     "vuepress-plugin-nuggets-style-copy": "^1.0.3"
-  }
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "not dead"
+  ]
 }

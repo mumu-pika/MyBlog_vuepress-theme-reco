@@ -2,6 +2,6 @@
 
 module.exports = vuepressThemeReco
 
-function vuepressThemeReco () {
+function vuepressThemeReco() {
   // TODO
 }

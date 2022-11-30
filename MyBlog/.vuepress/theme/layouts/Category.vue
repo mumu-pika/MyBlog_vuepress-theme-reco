@@ -5,13 +5,18 @@
       <ul v-show="recoShowModule" class="category-wrapper">
         <li
           class="category-item"
-          :class="title == item.name ? 'active': ''"
+          :class="title == item.name ? 'active' : ''"
           v-for="(item, index) in $categoriesList"
           v-show="item.pages.length > 0"
-          :key="index">
+          :key="index"
+        >
           <router-link :to="item.path">
             <span class="category-name">{{ item.name }}</span>
-            <span class="post-num" :style="{ 'backgroundColor': getOneColor() }">{{ item.pages.length }}</span>
+            <span
+              class="post-num"
+              :style="{ backgroundColor: getOneColor() }"
+              >{{ item.pages.length }}</span
+            >
           </router-link>
         </li>
       </ul>
@@ -43,7 +48,7 @@ export default defineComponent({
   mixins: [moduleTransitonMixin],
   components: { Common, NoteAbstract, ModuleTransition },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const posts = computed(() => {
@@ -57,11 +62,11 @@ export default defineComponent({
       return instance.$currentCategories.key
     })
 
-    const getCurrentTag = (tag) => {
+    const getCurrentTag = tag => {
       ctx.emit('currentTag', tag)
     }
 
-    const paginationChange = (page) => {
+    const paginationChange = page => {
       setTimeout(() => {
         window.scrollTo(0, 0)
       }, 100)

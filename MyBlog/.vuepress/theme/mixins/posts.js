@@ -1,8 +1,12 @@
-import { filterPosts, sortPostsByStickyAndDate, sortPostsByDate } from '../helpers/postData'
+import {
+  filterPosts,
+  sortPostsByStickyAndDate,
+  sortPostsByDate
+} from '../helpers/postData'
 
 export default {
   computed: {
-    $recoPosts () {
+    $recoPosts() {
       let posts = this.$site.pages
 
       posts = filterPosts(posts, false)
@@ -10,7 +14,7 @@ export default {
 
       return posts
     },
-    $recoPostsForTimeline () {
+    $recoPostsForTimeline() {
       let pages = this.$recoPosts
       const formatPages = {}
       const formatPagesArr = []
@@ -36,7 +40,7 @@ export default {
 
       return formatPagesArr
     },
-    $categoriesList () {
+    $categoriesList() {
       return this.$categories.list.map(category => {
         category.pages = category.pages.filter(page => {
           return page.frontmatter.publish !== false
@@ -44,7 +48,7 @@ export default {
         return category
       })
     },
-    $tagesList () {
+    $tagesList() {
       return this.$tags.list.map(tag => {
         tag.pages = tag.pages.filter(page => {
           return page.frontmatter.publish !== false
@@ -52,7 +56,7 @@ export default {
         return tag
       })
     },
-    $showSubSideBar () {
+    $showSubSideBar() {
       const {
         $themeConfig: { subSidebar: themeSubSidebar, sidebar: themeSidebar },
         $frontmatter: { subSidebar: pageSubSidebar, sidebar: pageSidebar }
@@ -62,9 +66,15 @@ export default {
 
       if ([pageSubSidebar, pageSidebar].indexOf(false) > -1) {
         return false
-      } else if ([pageSubSidebar, pageSidebar].indexOf('auto') > -1 && headers.length > 0) {
+      } else if (
+        [pageSubSidebar, pageSidebar].indexOf('auto') > -1 &&
+        headers.length > 0
+      ) {
         return true
-      } else if ([themeSubSidebar, themeSidebar].indexOf('auto') > -1 && headers.length > 0) {
+      } else if (
+        [themeSubSidebar, themeSidebar].indexOf('auto') > -1 &&
+        headers.length > 0
+      ) {
         return true
       } else {
         return false
@@ -73,11 +83,15 @@ export default {
   }
 }
 
-function renderTime (date) {
+function renderTime(date) {
   var dateee = new Date(date).toJSON()
-  return new Date(+new Date(dateee) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '').replace(/-/g, '/')
+  return new Date(+new Date(dateee) + 8 * 3600 * 1000)
+    .toISOString()
+    .replace(/T/g, ' ')
+    .replace(/\.[\d]{3}Z/, '')
+    .replace(/-/g, '/')
 }
-function dateFormat (date, type) {
+function dateFormat(date, type) {
   date = renderTime(date)
   const dateObj = new Date(date)
   const year = dateObj.getFullYear()

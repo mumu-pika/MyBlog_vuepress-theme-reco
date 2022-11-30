@@ -3,8 +3,11 @@
     <ModuleTransition delay="0.08">
       <section v-show="recoShowModule">
         <div class="page-title">
-          <h1 class="title">{{$page.title}}</h1>
-          <PageInfo :pageInfo="$page" :showAccessNumber="showAccessNumber"></PageInfo>
+          <h1 class="title">{{ $page.title }}</h1>
+          <PageInfo
+            :pageInfo="$page"
+            :showAccessNumber="showAccessNumber"
+          ></PageInfo>
         </div>
         <!-- 这里使用 v-show，否则影响 SSR -->
         <Content class="theme-reco-content" />
@@ -14,18 +17,13 @@
     <ModuleTransition delay="0.16">
       <footer v-if="recoShowModule" class="page-edit">
         <div class="edit-link" v-if="editLink">
-          <a
-            :href="editLink"
-            target="_blank"
-            rel="noopener noreferrer"
-          >{{ editLinkText }}</a>
-          <OutboundLink/>
+          <a :href="editLink" target="_blank" rel="noopener noreferrer">{{
+            editLinkText
+          }}</a>
+          <OutboundLink />
         </div>
 
-        <div
-          class="last-updated"
-          v-if="lastUpdated"
-        >
+        <div class="last-updated" v-if="lastUpdated">
           <span class="prefix">{{ lastUpdatedText }}: </span>
           <span class="time">{{ lastUpdated }}</span>
         </div>
@@ -50,12 +48,10 @@
       </div>
     </ModuleTransition>
 
-
     <!-- 评论显示区域 -->
     <ModuleTransition delay="0.32">
-      <Comments v-if="recoShowModule" :isShowComments="shouldShowComments"/>
+      <Comments v-if="recoShowModule" :isShowComments="shouldShowComments" />
     </ModuleTransition>
-
 
     <!-- 右侧侧边栏 -->
     <ModuleTransition>
@@ -79,7 +75,7 @@ export default defineComponent({
 
   props: ['sidebarItems'],
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const { sidebarItems } = toRefs(props)
@@ -89,8 +85,13 @@ export default defineComponent({
     // 是否显示评论
     const shouldShowComments = computed(() => {
       const { isShowComments } = instance.$frontmatter
-      const { showComment } = instance.$themeConfig.valineConfig || { showComment: true }
-      return (showComment !== false && isShowComments !== false) || (showComment === false && isShowComments === true)
+      const { showComment } = instance.$themeConfig.valineConfig || {
+        showComment: true
+      }
+      return (
+        (showComment !== false && isShowComments !== false) ||
+        (showComment === false && isShowComments === true)
+      )
     })
 
     const showAccessNumber = computed(() => {
@@ -124,7 +125,11 @@ export default defineComponent({
       if (frontmatterPrev === false) {
         return
       } else if (frontmatterPrev) {
-        return resolvePage(instance.$site.pages, frontmatterPrev, instance.$route.path)
+        return resolvePage(
+          instance.$site.pages,
+          frontmatterPrev,
+          instance.$route.path
+        )
       } else {
         return resolvePrev(instance.$page, sidebarItems.value)
       }
@@ -135,7 +140,11 @@ export default defineComponent({
       if (next === false) {
         return
       } else if (frontmatterNext) {
-        return resolvePage(instance.$site.pages, frontmatterNext, instance.$route.path)
+        return resolvePage(
+          instance.$site.pages,
+          frontmatterNext,
+          instance.$route.path
+        )
       } else {
         return resolveNext(instance.$page, sidebarItems.value)
       }
@@ -154,14 +163,22 @@ export default defineComponent({
       } = instance.$themeConfig
 
       if (docsRepo && editLinks && instance.$page.relativePath) {
-        return createEditLink(repo, docsRepo, docsDir, docsBranch, instance.$page.relativePath)
+        return createEditLink(
+          repo,
+          docsRepo,
+          docsDir,
+          docsBranch,
+          instance.$page.relativePath
+        )
       }
       return ''
     })
 
     const editLinkText = computed(() => {
       return (
-        instance.$themeLocaleConfig.editLinkText || instance.$themeConfig.editLinkText || `Edit this page`
+        instance.$themeLocaleConfig.editLinkText ||
+        instance.$themeConfig.editLinkText ||
+        `Edit this page`
       )
     })
 
@@ -184,19 +201,17 @@ export default defineComponent({
   }
 })
 
-function createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
+function createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
   const bitbucket = /bitbucket.org/
   if (bitbucket.test(repo)) {
-    const base = outboundRE.test(docsRepo)
-      ? docsRepo
-      : repo
+    const base = outboundRE.test(docsRepo) ? docsRepo : repo
     return (
       base.replace(endingSlashRE, '') +
-        `/src` +
-        `/${docsBranch}/` +
-        (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '') +
-        path +
-        `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
+      `/src` +
+      `/${docsBranch}/` +
+      (docsDir ? docsDir.replace(endingSlashRE, '') + '/' : '') +
+      path +
+      `?mode=edit&spa=0&at=${docsBranch}&fileviewer=file-view-default`
     )
   }
 
@@ -213,15 +228,15 @@ function createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
   )
 }
 
-function resolvePrev (page, items) {
+function resolvePrev(page, items) {
   return find(page, items, -1)
 }
 
-function resolveNext (page, items) {
+function resolveNext(page, items) {
   return find(page, items, 1)
 }
 
-function find (page, items, offset) {
+function find(page, items, offset) {
   const res = []
   flatten(items, res)
   for (let i = 0; i < res.length; i++) {
@@ -232,7 +247,7 @@ function find (page, items, offset) {
   }
 }
 
-function flatten (items, res) {
+function flatten(items, res) {
   for (let i = 0, l = items.length; i < l; i++) {
     if (items[i].type === 'group') {
       flatten(items[i].children || [], res)
@@ -241,7 +256,6 @@ function flatten (items, res) {
     }
   }
 }
-
 </script>
 
 <style lang="stylus">
@@ -327,5 +341,4 @@ function flatten (items, res) {
         font-size .8em
         float none
         text-align left
-
 </style>

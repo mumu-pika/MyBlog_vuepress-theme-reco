@@ -1,8 +1,5 @@
 <template>
-  <ul
-    class="sidebar-links"
-    v-if="items.length"
-  >
+  <ul class="sidebar-links" v-if="items.length">
     <li v-for="(item, i) in items" :key="i">
       <SidebarGroup
         v-if="item.type === 'group'"
@@ -12,11 +9,7 @@
         :depth="depth"
         @toggle="toggleGroup(i)"
       />
-      <SidebarLink
-        v-else
-        :sidebarDepth="sidebarDepth"
-        :item="item"
-      />
+      <SidebarLink v-else :sidebarDepth="sidebarDepth" :item="item" />
     </li>
   </ul>
 </template>
@@ -39,7 +32,7 @@ export default defineComponent({
     'sidebarDepth' // depth of headers to be extracted
   ],
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const { items } = toRefs(props)
@@ -47,10 +40,7 @@ export default defineComponent({
     const openGroupIndex = ref(0)
 
     const refreshIndex = () => {
-      const index = resolveOpenGroupIndex(
-        instance.$route,
-        items.value
-      )
+      const index = resolveOpenGroupIndex(instance.$route, items.value)
       if (index > -1) {
         openGroupIndex.value = index
       }
@@ -58,9 +48,20 @@ export default defineComponent({
 
     const activationAnchor = () => {
       // eslint-disable-next-line no-undef
-      const anchors = [].slice.call(document.querySelectorAll(AHL_HEADER_ANCHOR_SELECTOR))
-        .filter(anchor => decodeURIComponent(instance.$route.fullPath).indexOf(decodeURIComponent(anchor.hash)) != -1)
-      if (anchors == null || anchors.length < 1 || anchors[0].offsetTop == undefined) return
+      const anchors = [].slice
+        .call(document.querySelectorAll(AHL_HEADER_ANCHOR_SELECTOR))
+        .filter(
+          anchor =>
+            decodeURIComponent(instance.$route.fullPath).indexOf(
+              decodeURIComponent(anchor.hash)
+            ) != -1
+        )
+      if (
+        anchors == null ||
+        anchors.length < 1 ||
+        anchors[0].offsetTop == undefined
+      )
+        return
       setTimeout(function () {
         window.scrollTo(0, anchors[0].offsetTop + 160)
       }, 100)
@@ -70,9 +71,15 @@ export default defineComponent({
       const subtitleName = decodeURIComponent(instance.$route.fullPath)
       if (!subtitleName || subtitleName == '') return
       // eslint-disable-next-line no-undef
-      const subtitles = [].slice.call(document.querySelectorAll(AHL_SIDEBAR_LINK_SELECTOR))
+      const subtitles = [].slice.call(
+        document.querySelectorAll(AHL_SIDEBAR_LINK_SELECTOR)
+      )
       for (let i = 0; i < subtitles.length; i++) {
-        if (decodeURIComponent(subtitles[i].getAttribute('href')).indexOf(subtitleName) != -1) {
+        if (
+          decodeURIComponent(subtitles[i].getAttribute('href')).indexOf(
+            subtitleName
+          ) != -1
+        ) {
           subtitles[i].click()
           activationAnchor()
           return
@@ -88,25 +95,29 @@ export default defineComponent({
       }
       if (el == null || el == undefined || el.offsetTop == undefined) return
 
-      const viewPortHeight = sidebarScroll.clientHeight || window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight
+      const viewPortHeight =
+        sidebarScroll.clientHeight ||
+        window.innerHeight ||
+        document.documentElement.clientHeight ||
+        document.body.clientHeight
       const offsetTop = el.offsetTop
       const offsetBottom = el.offsetTop + el.offsetHeight
       const scrollTop = sidebarScroll.scrollTop
-      const bottomVisible = (offsetBottom <= viewPortHeight + scrollTop)
+      const bottomVisible = offsetBottom <= viewPortHeight + scrollTop
       if (!bottomVisible) {
-        sidebarScroll.scrollTop = (offsetBottom + 5 - viewPortHeight)
+        sidebarScroll.scrollTop = offsetBottom + 5 - viewPortHeight
       }
-      const topVisible = (offsetTop >= scrollTop)
+      const topVisible = offsetTop >= scrollTop
       if (!topVisible) {
-        sidebarScroll.scrollTop = (offsetTop - 5)
+        sidebarScroll.scrollTop = offsetTop - 5
       }
     }
 
-    const toggleGroup = (index) => {
+    const toggleGroup = index => {
       instance.openGroupIndex = index === instance.openGroupIndex ? -1 : index
     }
 
-    const isActive = (page) => {
+    const isActive = page => {
       return isActive(instance.$route, page.regularPath)
     }
 
@@ -123,16 +134,19 @@ export default defineComponent({
   },
 
   watch: {
-    '$route' () {
+    $route() {
       this.refreshIndex()
     }
   }
 })
 
-function resolveOpenGroupIndex (route, items) {
+function resolveOpenGroupIndex(route, items) {
   for (let i = 0; i < items.length; i++) {
     const item = items[i]
-    if (item.type === 'group' && item.children.some(c => c.type === 'page' && isActive(route, c.path))) {
+    if (
+      item.type === 'group' &&
+      item.children.some(c => c.type === 'page' && isActive(route, c.path))
+    ) {
       return i
     }
   }

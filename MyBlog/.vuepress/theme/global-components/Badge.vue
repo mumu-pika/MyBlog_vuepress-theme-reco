@@ -15,13 +15,17 @@ export default defineComponent({
       default: 'top'
     }
   },
-  render (h, { props, slots }) {
-    return h('span', {
-      class: ['badge', props.type],
-      style: {
-        verticalAlign: props.vertical
-      }
-    }, props.text || slots().default)
+  render(h, { props, slots }) {
+    return h(
+      'span',
+      {
+        class: ['badge', props.type],
+        style: {
+          verticalAlign: props.vertical
+        }
+      },
+      props.text || slots().default
+    )
   }
 })
 </script>

@@ -1,11 +1,12 @@
 <template>
-  <Common  class="tags-wrapper" :sidebar="false">
+  <Common class="tags-wrapper" :sidebar="false">
     <!-- 标签集合 -->
     <ModuleTransition>
       <TagList
         v-show="recoShowModule"
         :currentTag="$recoLocales.all"
-        @getCurrentTag="tagClick"></TagList>
+        @getCurrentTag="tagClick"
+      ></TagList>
     </ModuleTransition>
 
     <!-- 博客列表 -->
@@ -33,16 +34,16 @@ export default defineComponent({
   mixins: [moduleTransitonMixin],
   components: { Common, NoteAbstract, TagList, ModuleTransition },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
-    const tagClick = (tagInfo) => {
+    const tagClick = tagInfo => {
       if (instance.$route.path !== tagInfo.path) {
         instance.$router.push({ path: tagInfo.path })
       }
     }
 
-    const paginationChange = (page) => {
+    const paginationChange = page => {
       setTimeout(() => {
         window.scrollTo(0, 0)
       }, 100)

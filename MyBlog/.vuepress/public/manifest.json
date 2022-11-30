@@ -7,9 +7,11 @@
   "description": "青春无悔",
   "orientation": "portrait-primary",
   "theme_color": "#fef4eb",
-  "icons": [{
+  "icons": [
+    {
       "src": "logo.png",
       "sizes": "144x144",
       "type": "image/png"
-  }]
+    }
+  ]
 }

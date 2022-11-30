@@ -2,20 +2,27 @@
 <template>
   <Common class="timeline-wrapper" :sidebar="false">
     <ul class="timeline-content">
-      <ModuleTransition >
+      <ModuleTransition>
         <!-- 时间线顶部一句 -->
-        <li v-show="recoShowModule" class="desc  kalam">{{$recoLocales.timeLineMsg}}</li>
+        <li v-show="recoShowModule" class="desc kalam">
+          {{ $recoLocales.timeLineMsg }}
+        </li>
       </ModuleTransition>
       <ModuleTransition
         :delay="String(0.08 * (index + 1))"
         v-for="(item, index) in $recoPostsForTimeline"
-        :key="index">
+        :key="index"
+      >
         <li v-show="recoShowModule">
-          <h3 class="year kalam">{{item.year}}</h3>
+          <h3 class="year kalam">{{ item.year }}</h3>
           <ul class="year-wrapper">
             <li v-for="(subItem, subIndex) in item.data" :key="subIndex">
-              <span class="date">{{dateFormat(subItem.frontmatter.date)}}</span>
-              <span class="title" @click="go(subItem.path)">{{subItem.title}}</span>
+              <span class="date">{{
+                dateFormat(subItem.frontmatter.date)
+              }}</span>
+              <span class="title" @click="go(subItem.path)">{{
+                subItem.title
+              }}</span>
             </li>
           </ul>
         </li>
@@ -35,17 +42,21 @@ export default defineComponent({
   name: 'TimeLine',
   mixins: [moduleTransitonMixin],
   components: { Common, ModuleTransition },
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
-    const go = (url) => {
+    const go = url => {
       instance.$router.push({ path: url })
     }
 
     const dateFormat = (date, type) => {
-      function renderTime (date) {
+      function renderTime(date) {
         const dateee = new Date(date).toJSON()
-        return new Date(+new Date(dateee) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '').replace(/-/g, '/')
+        return new Date(+new Date(dateee) + 8 * 3600 * 1000)
+          .toISOString()
+          .replace(/T/g, ' ')
+          .replace(/\.[\d]{3}Z/, '')
+          .replace(/-/g, '/')
       }
       date = renderTime(date)
       const dateObj = new Date(date)

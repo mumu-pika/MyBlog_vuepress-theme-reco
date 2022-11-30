@@ -2,7 +2,7 @@
 title: markdown用法
 date: 2020-05-28
 tags:
-- 插件
+- plugins
 ---
 
 ::: tip 摘要

@@ -21,7 +21,7 @@ const msgs = [
 ]
 
 export default defineComponent({
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const noFoundPageByTencent = computed(() => {
@@ -37,7 +37,10 @@ export default defineComponent({
         const dom = document.createElement('script')
         dom.setAttribute('homePageName', '回到首页')
         dom.setAttribute('homePageUrl', instance.$site.base)
-        dom.setAttribute('src', '//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js')
+        dom.setAttribute(
+          'src',
+          '//qzonestyle.gtimg.cn/qzone/hybrid/app/404/search_children.js'
+        )
 
         document.body.append(dom)
       }
@@ -74,4 +77,3 @@ export default defineComponent({
       margin 0!important
       padding-top 20px
 </style>
-

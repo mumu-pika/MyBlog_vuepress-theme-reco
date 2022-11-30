@@ -1,5 +1,9 @@
 <template>
-  <span :id="getIdVal(idVal)" class="leancloud-visitors" :data-flag-title="flagTitle">
+  <span
+    :id="getIdVal(idVal)"
+    class="leancloud-visitors"
+    :data-flag-title="flagTitle"
+  >
     <a class="leancloud-visitors-count" :style="numStyle"></a>
   </span>
 </template>
@@ -16,7 +20,7 @@ export default {
     }
   },
   methods: {
-    getIdVal (path) {
+    getIdVal(path) {
       const base = this.$site.base
       return base.slice(0, base.length - 1) + path
     }

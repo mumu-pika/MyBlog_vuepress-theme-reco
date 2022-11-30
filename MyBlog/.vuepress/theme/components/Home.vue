@@ -6,39 +6,63 @@
           v-if="recoShowModule && $frontmatter.heroImage"
           :style="heroImageStyle || {}"
           :src="$withBase($frontmatter.heroImage)"
-          alt="hero">
+          alt="hero"
+        />
       </ModuleTransition>
       <ModuleTransition delay="0.04">
         <h1
           v-if="recoShowModule && $frontmatter.heroText !== null"
-          :style="{ marginTop: $frontmatter.heroImage ? '0px' : '140px'}"
+          :style="{ marginTop: $frontmatter.heroImage ? '0px' : '140px' }"
         >
           {{ $frontmatter.heroText || $title || 'vuePress-theme-reco' }}
         </h1>
       </ModuleTransition>
       <ModuleTransition delay="0.08">
-        <p v-if="recoShowModule && $frontmatter.tagline !== null" class="description">
+        <p
+          v-if="recoShowModule && $frontmatter.tagline !== null"
+          class="description"
+        >
           <!-- 进入博客网站时，会有一段时间的加载，这里设置的是加载时候的欢迎语 -->
-          {{ $frontmatter.tagline || $description || 'Welcome to your own blog site!!' }}
+          {{
+            $frontmatter.tagline ||
+            $description ||
+            'Welcome to your own blog site!!'
+          }}
         </p>
       </ModuleTransition>
       <ModuleTransition delay="0.16">
-        <p class="action" v-if="recoShowModule && $frontmatter.actionText && $frontmatter.actionLink">
-          <NavLink class="action-button" :item="actionLink"/>
+        <p
+          class="action"
+          v-if="
+            recoShowModule && $frontmatter.actionText && $frontmatter.actionLink
+          "
+        >
+          <NavLink class="action-button" :item="actionLink" />
         </p>
       </ModuleTransition>
     </div>
 
     <ModuleTransition delay="0.24">
-      <div class="features" v-if="recoShowModule && $frontmatter.features && $frontmatter.features.length">
-        <div v-for="(feature, index) in $frontmatter.features" :key="index" class="feature">
+      <div
+        class="features"
+        v-if="
+          recoShowModule &&
+          $frontmatter.features &&
+          $frontmatter.features.length
+        "
+      >
+        <div
+          v-for="(feature, index) in $frontmatter.features"
+          :key="index"
+          class="feature"
+        >
           <h2>{{ feature.title }}</h2>
           <p>{{ feature.details }}</p>
         </div>
       </div>
     </ModuleTransition>
     <ModuleTransition delay="0.32">
-      <Content class="home-center" v-show="recoShowModule" custom/>
+      <Content class="home-center" v-show="recoShowModule" custom />
     </ModuleTransition>
   </div>
 </template>
@@ -52,17 +76,25 @@ import { useInstance } from '@theme/helpers/composable'
 export default defineComponent({
   components: { NavLink, ModuleTransition },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
-    const recoShowModule = computed(() => instance && instance.$parent.recoShowModule)
-    const actionLink = computed(() => instance && {
-      link: instance.$frontmatter.actionLink,
-      text: instance.$frontmatter.actionText
-    })
-    const heroImageStyle = computed(() => instance.$frontmatter.heroImageStyle || {
-      maxHeight: '200px',
-      margin: '6rem auto 1.5rem'
-    })
+    const recoShowModule = computed(
+      () => instance && instance.$parent.recoShowModule
+    )
+    const actionLink = computed(
+      () =>
+        instance && {
+          link: instance.$frontmatter.actionLink,
+          text: instance.$frontmatter.actionText
+        }
+    )
+    const heroImageStyle = computed(
+      () =>
+        instance.$frontmatter.heroImageStyle || {
+          maxHeight: '200px',
+          margin: '6rem auto 1.5rem'
+        }
+    )
 
     return { recoShowModule, actionLink, heroImageStyle }
   }

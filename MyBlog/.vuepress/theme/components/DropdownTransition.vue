@@ -5,7 +5,7 @@
     @after-enter="unsetHeight"
     @before-leave="setHeight"
   >
-    <slot/>
+    <slot />
   </transition>
 </template>
 
@@ -14,12 +14,12 @@ import { defineComponent } from 'vue-demi'
 export default defineComponent({
   name: 'DropdownTransition',
 
-  setup (props, ctx) {
-    const setHeight = (items) => {
+  setup(props, ctx) {
+    const setHeight = items => {
       items.style.height = items.scrollHeight + 'px'
     }
 
-    const unsetHeight = (items) => {
+    const unsetHeight = items => {
       items.style.height = ''
     }
 
@@ -31,5 +31,4 @@ export default defineComponent({
 <style lang="stylus">
 .dropdown-enter, .dropdown-leave-to
   height 0 !important
-
 </style>

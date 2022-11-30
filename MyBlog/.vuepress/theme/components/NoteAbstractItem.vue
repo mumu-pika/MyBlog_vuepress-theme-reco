@@ -8,7 +8,10 @@
         class="cover-img"
         :src="
           item.frontmatter.cover ||
-          this.$themeConfig.covers[Math.floor(Math.random()*this.$themeConfig.covers.length)] || '../images/lighthouse.webp'
+          this.$themeConfig.covers[
+            Math.floor(Math.random() * this.$themeConfig.covers.length)
+          ] ||
+          '../images/lighthouse.webp'
         "
         :alt="item.title"
       />
@@ -26,13 +29,13 @@
 </template>
 
 <script>
-import { defineComponent } from "vue-demi";
-import { RecoIcon } from "@vuepress-reco/core/lib/components";
-import PageInfo from "./PageInfo";
+import { defineComponent } from 'vue-demi'
+import { RecoIcon } from '@vuepress-reco/core/lib/components'
+import PageInfo from './PageInfo'
 export default defineComponent({
   components: { PageInfo, RecoIcon },
-  props: ["item", "currentPage", "currentTag"],
-});
+  props: ['item', 'currentPage', 'currentTag']
+})
 </script>
 
 <style lang="stylus" scoped>

@@ -24,11 +24,13 @@
                 初心是想在前端开发路上，分享并探索新的技术。能在茫茫互联网中遇见你，非常不易，欢迎留言，共勉成长！
               </p>
             </div> -->
-            <!-- typed展示输出的内容 -->
-            <span id="typed1"></span>
-            <span id="typed2"></span>
-            <span id="typed3"></span>
-            <span id="typed4"></span>
+            <div class="InfoContainer-textContainer">
+              <!-- typed展示输出的内容 -->
+              <span id="typed1"></span>
+              <span id="typed2"></span>
+              <span id="typed3"></span>
+              <span id="typed4"></span>
+            </div>
           </div>
           <!-- 个人信息 -->
           <!-- <div v-if="recoShowModule" class="socials">
@@ -59,8 +61,8 @@
         </ModuleTransition>
 
         <ModuleTransition delay="0.12" duration="0.5">
-        <!-- 评论区域 -->
-        <Comments />
+          <!-- 评论区域 -->
+          <Comments />
         </ModuleTransition>
       </div>
     </div>
@@ -68,59 +70,63 @@
 </template>
 
 <script>
-import Common from "@theme/components/Common";
-import ModuleTransition from "@theme/components/ModuleTransition";
-import moduleTransitonMixin from "@theme/mixins/moduleTransiton";
-import Comments from "@theme/components/Comments/Comments.vue";
+import Common from '@theme/components/Common'
+import ModuleTransition from '@theme/components/ModuleTransition'
+import moduleTransitonMixin from '@theme/mixins/moduleTransiton'
+import Comments from '@theme/components/Comments/Comments.vue'
 // import { typingMagic } from "@theme/helpers/utils";
-import Typed from "typed.js";
+import Typed from 'typed.js'
 
 export default {
-  name: "About",
+  name: 'About',
   mixins: [moduleTransitonMixin],
   components: { Common, ModuleTransition, Comments },
 
   computed: {
     socials() {
-      return this.$themeConfig.socials;
+      return this.$themeConfig.socials
     },
     // typed函数使用 https://github.com/mumu-pika/typed.js
     typedString1() {
-      return new Typed("#typed1", {
+      return new Typed('#typed1', {
         // stringsElement: "#typed-strings",
-        strings:['目的地到达! 你好呀，旅行者。我是木木，欢迎来到我的秘密花园!'],
-        typeSpeed: 80,  //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
+        strings: [
+          '目的地到达! 你好呀，旅行者。我是木木，欢迎来到我的秘密花园!'
+        ],
+        typeSpeed: 80, //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
         startDelay: 0, // 设置开始打字前的延迟
-        showCursor: false, //设置是否显示鼠标
-      });
+        showCursor: false //设置是否显示鼠标
+      })
     },
     typedString2() {
-      return new Typed("#typed2", {
+      return new Typed('#typed2', {
         // stringsElement: "#typed-strings",
-        strings:['这里是我基于Vuepress框架, 在主题remo基础上写的个人博客网站。'],
-        typeSpeed: 80,  //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
+        strings: [
+          '这里是我基于Vuepress框架, 在主题remo基础上写的个人博客网站。'
+        ],
+        typeSpeed: 80, //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
         startDelay: 5000, // 设置开始打字前的延迟
-        showCursor: false, //设置是否显示鼠标
-      });
+        showCursor: false //设置是否显示鼠标
+      })
     },
     typedString3() {
-      return new Typed("#typed3", {
+      return new Typed('#typed3', {
         // stringsElement: "#typed-strings",
-        strings:['初心是想在前端开发路上，分享并探索新的技术。'],
-        typeSpeed: 100,  //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
+        strings: ['初心是想在前端开发路上，分享并探索新的技术。'],
+        typeSpeed: 100, //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
         startDelay: 10000, // 设置开始打字前的延迟
-        showCursor: false, //设置是否显示鼠标
-      });
+        showCursor: false //设置是否显示鼠标
+      })
     },
     typedString4() {
-      return new Typed("#typed4", {
+      return new Typed('#typed4', {
         // stringsElement: "#typed-strings",
-        strings:['能在茫茫互联网中遇见你，非常不易，欢迎留言，共勉成长！'],
-        typeSpeed: 100,  //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
+        strings: ['能在茫茫互联网中遇见你，非常不易，欢迎留言，共勉成长！'],
+        typeSpeed: 100, //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
         startDelay: 14000, // 设置开始打字前的延迟
-        showCursor: false, //设置是否显示鼠标
-      });
-    },
+        showCursor: false //设置是否显示鼠标
+      })
+    }
   },
 
   methods: {},
@@ -134,8 +140,8 @@ export default {
     this.typedString4.start()
   },
 
-  watch: {},
-};
+  watch: {}
+}
 </script>
 
 <style src="../styles/theme.styl" lang="stylus"></style>
@@ -145,8 +151,11 @@ export default {
 .author-social
   position: relative
   display: flex
+  margin 0 auto
+  max-width 80rem
   height: 100vh
   flex-direction: column
+  justify-self center
   text-align: center
   padding: 0 5rem
   // 个人图片
@@ -178,11 +187,12 @@ export default {
     justify-content: center
     align-content: center
     width: 30rem
-    height: 10rem
+    height: 20rem
     padding: 2rem
     margin: 1rem auto
     border: 2px solid #bfa
     border-radius: 1rem
+    // 这里设置伪元素是为了背景图片与内部的字体可以分别区分开透明度
     &::before
       content: ''
       position: absolute
@@ -196,12 +206,15 @@ export default {
       // background-position: right
       opacity: 0.5
       z-index -1
-
+    .InfoContainer-textContainer
+      display block
+      height 10rem
+      // background-color red
 
     // 展示的内容区域
     #typed1, #typed2, #typed3, #typed4
       display: inline-block
-      margin: 0.5rem auto
+      margin: 0.6rem auto
       font-size: 1rem
       font-weight: 600
   // 个人联系方式的小图标

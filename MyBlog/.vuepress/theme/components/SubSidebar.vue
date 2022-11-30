@@ -5,15 +5,18 @@ import { isActive } from '@theme/helpers/utils'
 import { useInstance } from '@theme/helpers/composable'
 
 export default defineComponent({
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const headers = computed(() => {
       return instance.$showSubSideBar ? instance.$page.headers : []
     })
 
-    const isLinkActive = (header) => {
-      const active = isActive(instance.$route, instance.$page.path + '#' + header.slug)
+    const isLinkActive = header => {
+      const active = isActive(
+        instance.$route,
+        instance.$page.path + '#' + header.slug
+      )
       if (active) {
         setTimeout(() => {
           document.querySelector(`.reco-side-${header.slug}`).scrollIntoView()
@@ -24,26 +27,41 @@ export default defineComponent({
 
     return { headers, isLinkActive }
   },
-  render (h) {
-    return h('ul', {
-      class: { 'sub-sidebar-wrapper': true },
-      style: { width: this.headers.length > 0 ? '12rem' : '0' }
-    }, [
-      ...this.headers.map(header => {
-        return h('li', {
-          class: {
-            active: this.isLinkActive(header),
-            [`level-${header.level}`]: true
-          },
-          attr: { key: header.title }
-        }, [
-          h('router-link', {
-            class: { 'sidebar-link': true, [`reco-side-${header.slug}`]: true },
-            props: { to: `${this.$page.path}#${header.slug}` }
-          }, header.title)
-        ])
-      })
-    ])
+  render(h) {
+    return h(
+      'ul',
+      {
+        class: { 'sub-sidebar-wrapper': true },
+        style: { width: this.headers.length > 0 ? '12rem' : '0' }
+      },
+      [
+        ...this.headers.map(header => {
+          return h(
+            'li',
+            {
+              class: {
+                active: this.isLinkActive(header),
+                [`level-${header.level}`]: true
+              },
+              attr: { key: header.title }
+            },
+            [
+              h(
+                'router-link',
+                {
+                  class: {
+                    'sidebar-link': true,
+                    [`reco-side-${header.slug}`]: true
+                  },
+                  props: { to: `${this.$page.path}#${header.slug}` }
+                },
+                header.title
+              )
+            ]
+          )
+        })
+      ]
+    )
   }
 })
 </script>
@@ -75,4 +93,3 @@ export default defineComponent({
     &.level-3
       padding-left 1.5rem
 </style>
-

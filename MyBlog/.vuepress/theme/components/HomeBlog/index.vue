@@ -37,7 +37,7 @@
               mottos.zh ||
               $frontmatter.heroText ||
               $title ||
-              "古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。"
+              '古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。'
             }}
           </h1>
         </ModuleTransition>
@@ -50,18 +50,20 @@
               mottos.en ||
               $frontmatter.heroText ||
               $title ||
-              "古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。"
+              '古之立大事者，不惟有超世之才，亦必有坚忍不拔之志。'
             }}
           </p>
         </ModuleTransition>
         <!-- 动态下拉 -->
-        <a href="#anchor" class="anchorContainer scroll-down bounce-enter-active down-arrow">
+        <a
+          href="#anchor"
+          class="anchorContainer scroll-down bounce-enter-active down-arrow"
+        >
           <img class="anchorImg" :src="anchorImageUrl" alt="anchor" />
         </a>
       </div>
       <!-- 气泡效果结构 -->
-      <div id="bubbles" class="bubblesContainer">
-      </div>
+      <div id="bubbles" class="bubblesContainer"></div>
     </div>
 
     <!-- 首页左侧博客内容展示区域 -->
@@ -126,16 +128,16 @@ import {
   toRefs,
   reactive,
   computed,
-  onMounted,
-} from "vue-demi";
-import TagList from "@theme/components/TagList";
-import FriendLink from "@theme/components/FriendLink";
-import NoteAbstract from "@theme/components/NoteAbstract";
-import { ModuleTransition, RecoIcon } from "@vuepress-reco/core/lib/components";
-import PersonalInfo from "@theme/components/PersonalInfo";
-import { getOneColor } from "@theme/helpers/other";
-import { useInstance } from "@theme/helpers/composable";
-import { circleMagic } from "@theme/helpers/utils";
+  onMounted
+} from 'vue-demi'
+import TagList from '@theme/components/TagList'
+import FriendLink from '@theme/components/FriendLink'
+import NoteAbstract from '@theme/components/NoteAbstract'
+import { ModuleTransition, RecoIcon } from '@vuepress-reco/core/lib/components'
+import PersonalInfo from '@theme/components/PersonalInfo'
+import { getOneColor } from '@theme/helpers/other'
+import { useInstance } from '@theme/helpers/composable'
+import { circleMagic } from '@theme/helpers/utils'
 
 export default defineComponent({
   components: {
@@ -144,26 +146,26 @@ export default defineComponent({
     FriendLink,
     ModuleTransition,
     PersonalInfo,
-    RecoIcon,
+    RecoIcon
   },
   setup(props, ctx) {
-    const instance = useInstance();
+    const instance = useInstance()
 
     const state = reactive({
       recoShow: false,
-      heroHeight: 0,
-    });
+      heroHeight: 0
+    })
 
     const recoShowModule = computed(
       () => instance && instance.$parent.recoShowModule
-    );
+    )
 
     const heroImageStyle = computed(
       () => instance.$frontmatter.heroImageStyle || {}
-    );
+    )
 
     // 设置封面格言样式，并暴露出去给config.js来让用户设置
-    const mottosStyle = computed(() => instance.$themeConfig.mottosStyle || {});
+    const mottosStyle = computed(() => instance.$themeConfig.mottosStyle || {})
 
     // 原先的背景封面图片
     // const bgImageStyle = computed(() => {
@@ -189,51 +191,59 @@ export default defineComponent({
 
     // 自定义修改的背景图片设置, 随机产生一张图片
     const bgImageStyle = computed(() => {
-      const url = instance.$themeConfig.heroImages[Math.floor(Math.random()*instance.$themeConfig.heroImages.length)]
-        ? instance.$withBase(instance.$themeConfig.heroImages[Math.floor(Math.random()*instance.$themeConfig.heroImages.length)])
-        : require("../../images/wait.jpg"); //如果用户没有设置背景图，设置主题默认封面图
+      const url = instance.$themeConfig.heroImages[
+        Math.floor(Math.random() * instance.$themeConfig.heroImages.length)
+      ]
+        ? instance.$withBase(
+            instance.$themeConfig.heroImages[
+              Math.floor(
+                Math.random() * instance.$themeConfig.heroImages.length
+              )
+            ]
+          )
+        : require('../../images/wait.jpg') //如果用户没有设置背景图，设置主题默认封面图
 
       const initBgImageStyle = {
-        textAlign: "center",
-        overflow: "hidden",
-        background: `url(${url}) center/cover no-repeat `,
-      };
+        textAlign: 'center',
+        overflow: 'hidden',
+        background: `url(${url}) center/cover no-repeat `
+      }
       // 获取用户自定义的样式，优先更高
-      const { bgImageStyle } = instance.$frontmatter;
+      const { bgImageStyle } = instance.$frontmatter
 
       return bgImageStyle
         ? { ...initBgImageStyle, ...bgImageStyle }
-        : initBgImageStyle;
-    });
+        : initBgImageStyle
+    })
 
     // 封面格言
     const mottos = computed(() => {
-      return instance.$themeConfig.mottos[new Date().getDay()];
-    });
+      return instance.$themeConfig.mottos[new Date().getDay()]
+    })
 
     // anchorImage的来源url
     const anchorImageUrl = computed(() => {
       return instance.$themeConfig.anchorImage
         ? instance.$withBase(instance.$themeConfig.anchorImage)
-        : require("../../images/pika.gif"); //如果用户没有设置，则显示默认动态图片
-    });
+        : require('../../images/pika.gif') //如果用户没有设置，则显示默认动态图片
+    })
 
     onMounted(() => {
       // 添加气泡效果的组件
       // import('vue-canvas-effect/src/components/bubbles').then(module =>{
       //   this.bubbles = module.default
       // })
-      state.heroHeight = document.querySelector(".hero").clientHeight;
-      state.recoShow = true;
+      state.heroHeight = document.querySelector('.hero').clientHeight
+      state.recoShow = true
       // 气泡效果
       circleMagic({
         radius: 15,
         density: 0.3,
         // color: "rgba(255,255,255, .4)",
-        color: "random", //气泡随机颜色
-        clearOffset: 0.2,
-      });
-    });
+        color: 'random', //气泡随机颜色
+        clearOffset: 0.2
+      })
+    })
 
     return {
       recoShowModule,
@@ -243,20 +253,20 @@ export default defineComponent({
       getOneColor,
       mottos,
       mottosStyle,
-      anchorImageUrl,
-    };
+      anchorImageUrl
+    }
   },
   methods: {
     paginationChange(page) {
       setTimeout(() => {
-        window.scrollTo(0, this.heroHeight);
-      }, 100);
+        window.scrollTo(0, this.heroHeight)
+      }, 100)
     },
     getPagesByTags(tagInfo) {
-      this.$router.push({ path: tagInfo.path });
-    },
-  },
-});
+      this.$router.push({ path: tagInfo.path })
+    }
+  }
+})
 </script>
 
 <style lang="stylus">

@@ -3,11 +3,7 @@
   <div ref="wrapper" class="navLinksContainer">
     <nav ref="content" class="nav-links" v-if="userLinks.length || repoLink">
       <!-- user links -->
-      <div
-        class="nav-item"
-        v-for="item in userLinks"
-        :key="item.link"
-      >
+      <div class="nav-item" v-for="item in userLinks" :key="item.link">
         <!-- 下拉链接 -->
         <DropdownLink v-if="item.type === 'links'" :item="item" />
         <NavLink v-else :item="item" />
@@ -30,142 +26,142 @@
 </template>
 
 <script>
-import { defineComponent, computed, onMounted, nextTick } from "vue-demi";
-import { RecoIcon } from "@vuepress-reco/core/lib/components";
-import DropdownLink from "@theme/components/DropdownLink";
-import { resolveNavLinkItem } from "@theme/helpers/utils";
-import NavLink from "@theme/components/NavLink";
-import { useInstance } from "@theme/helpers/composable";
+import { defineComponent, computed, onMounted, nextTick } from 'vue-demi'
+import { RecoIcon } from '@vuepress-reco/core/lib/components'
+import DropdownLink from '@theme/components/DropdownLink'
+import { resolveNavLinkItem } from '@theme/helpers/utils'
+import NavLink from '@theme/components/NavLink'
+import { useInstance } from '@theme/helpers/composable'
 // import Scroll from './Scroll.vue'
 
-import BScroll from "better-scroll";
+import BScroll from 'better-scroll'
 
 export default defineComponent({
   components: { NavLink, DropdownLink, RecoIcon, BScroll },
 
   setup(props, ctx) {
-    const instance = useInstance();
+    const instance = useInstance()
 
     const userNav = computed(() => {
-      return instance.$themeLocaleConfig.nav || instance.$themeConfig.nav || [];
-    });
+      return instance.$themeLocaleConfig.nav || instance.$themeConfig.nav || []
+    })
 
     const nav = computed(() => {
-      const locales = instance.$site.locales || {};
+      const locales = instance.$site.locales || {}
 
       if (locales && Object.keys(locales).length > 1) {
-        const currentLink = instance.$page.path;
-        const routes = instance.$router.options.routes;
-        const themeLocales = instance.$themeConfig.locales || {};
+        const currentLink = instance.$page.path
+        const routes = instance.$router.options.routes
+        const themeLocales = instance.$themeConfig.locales || {}
         const languageDropdown = {
-          text: instance.$themeLocaleConfig.selectText || "Languages",
-          items: Object.keys(locales).map((path) => {
-            const locale = locales[path];
+          text: instance.$themeLocaleConfig.selectText || 'Languages',
+          items: Object.keys(locales).map(path => {
+            const locale = locales[path]
             const text =
-              (themeLocales[path] && themeLocales[path].label) || locale.lang;
-            let link;
+              (themeLocales[path] && themeLocales[path].label) || locale.lang
+            let link
             // Stay on the current page
             if (locale.lang === instance.$lang) {
-              link = currentLink;
+              link = currentLink
             } else {
               // Try to stay on the same page
-              link = currentLink.replace(instance.$localeConfig.path, path);
+              link = currentLink.replace(instance.$localeConfig.path, path)
               // fallback to homepage
-              if (!routes.some((route) => route.path === link)) {
-                link = path;
+              if (!routes.some(route => route.path === link)) {
+                link = path
               }
             }
-            return { text, link };
-          }),
-        };
+            return { text, link }
+          })
+        }
 
-        return [...userNav.value, languageDropdown];
+        return [...userNav.value, languageDropdown]
       }
 
       // blogConfig 的处理，根绝配置自动添加分类和标签
-      const blogConfig = instance.$themeConfig.blogConfig || {};
-      const isHasCategory = userNav.value.some((item) => {
+      const blogConfig = instance.$themeConfig.blogConfig || {}
+      const isHasCategory = userNav.value.some(item => {
         if (blogConfig.category) {
-          return item.text === (blogConfig.category.text || "分类");
+          return item.text === (blogConfig.category.text || '分类')
         } else {
-          return true;
+          return true
         }
-      });
-      const isHasTag = userNav.value.some((item) => {
+      })
+      const isHasTag = userNav.value.some(item => {
         if (blogConfig.tag) {
-          return item.text === (blogConfig.tag.text || "标签");
+          return item.text === (blogConfig.tag.text || '标签')
         } else {
-          return true;
+          return true
         }
-      });
+      })
 
       if (
         !isHasCategory &&
-        Object.hasOwnProperty.call(blogConfig, "category")
+        Object.hasOwnProperty.call(blogConfig, 'category')
       ) {
-        const category = blogConfig.category;
-        const $categories = instance.$categories;
+        const category = blogConfig.category
+        const $categories = instance.$categories
         userNav.value.splice(parseInt(category.location || 2) - 1, 0, {
-          items: $categories.list.map((item) => {
-            item.link = item.path;
-            item.text = item.name;
-            return item;
+          items: $categories.list.map(item => {
+            item.link = item.path
+            item.text = item.name
+            return item
           }),
           text: category.text || instance.$recoLocales.category,
           // 设置类型
-          type: "links",
-          icon: "reco-category",
-        });
+          type: 'links',
+          icon: 'reco-category'
+        })
       }
 
-      if (!isHasTag && Object.hasOwnProperty.call(blogConfig, "tag")) {
-        const tag = blogConfig.tag;
+      if (!isHasTag && Object.hasOwnProperty.call(blogConfig, 'tag')) {
+        const tag = blogConfig.tag
         userNav.value.splice(parseInt(tag.location || 3) - 1, 0, {
-          link: "/tag/",
+          link: '/tag/',
           text: tag.text || instance.$recoLocales.tag,
-          type: "links",
-          icon: "reco-tag",
-        });
+          type: 'links',
+          icon: 'reco-tag'
+        })
       }
 
-      return userNav.value;
-    });
+      return userNav.value
+    })
 
     const userLinks = computed(() => {
-      return (instance.nav || []).map((link) => {
+      return (instance.nav || []).map(link => {
         return Object.assign(resolveNavLinkItem(link), {
-          items: (link.items || []).map(resolveNavLinkItem),
-        });
-      });
-    });
+          items: (link.items || []).map(resolveNavLinkItem)
+        })
+      })
+    })
 
     const repoLink = computed(() => {
-      const { repo } = instance.$themeConfig;
+      const { repo } = instance.$themeConfig
 
       if (repo) {
-        return /^https?:/.test(repo) ? repo : `https://github.com/${repo}`;
+        return /^https?:/.test(repo) ? repo : `https://github.com/${repo}`
       }
 
-      return "";
-    });
+      return ''
+    })
 
     const repoLabel = computed(() => {
-      if (!instance.repoLink) return "";
+      if (!instance.repoLink) return ''
       if (instance.$themeConfig.repoLabel) {
-        return instance.$themeConfig.repoLabel;
+        return instance.$themeConfig.repoLabel
       }
 
-      const repoHost = instance.repoLink.match(/^https?:\/\/[^/]+/)[0];
-      const platforms = ["GitHub", "GitLab", "Bitbucket"];
+      const repoHost = instance.repoLink.match(/^https?:\/\/[^/]+/)[0]
+      const platforms = ['GitHub', 'GitLab', 'Bitbucket']
       for (let i = 0; i < platforms.length; i++) {
-        const platform = platforms[i];
-        if (new RegExp(platform, "i").test(repoHost)) {
-          return platform;
+        const platform = platforms[i]
+        if (new RegExp(platform, 'i').test(repoHost)) {
+          return platform
         }
       }
 
-      return "Source";
-    });
+      return 'Source'
+    })
 
     onMounted(() => {
       // 保证在DOM渲染完毕后初始化better-scroll
@@ -173,8 +169,8 @@ export default defineComponent({
       // （20 ms 是一个经验值，每一个 Tick 约为 17 ms），对用户体验而言都是无感知的。
       setTimeout(() => {
         initScroll()
-      }, 20);
-    });
+      }, 20)
+    })
 
     // 滚动条函数
     function initScroll() {
@@ -193,16 +189,16 @@ export default defineComponent({
             scrollX: true,
             scrollY: false,
             preventDefault: false //是否阻止默认事件，比如事件的委托
-          });
+          })
         } else {
-          instance.scroll.refresh(); //如果dom结构发生改变调用该方法, 更新
+          instance.scroll.refresh() //如果dom结构发生改变调用该方法, 更新
         }
-      });
+      })
     }
 
-    return { userNav, nav, userLinks, repoLink, repoLabel, initScroll };
-  },
-});
+    return { userNav, nav, userLinks, repoLink, repoLabel, initScroll }
+  }
+})
 </script>
 
 <style lang="stylus">

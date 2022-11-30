@@ -14,16 +14,13 @@
       class="sidebar-heading clickable"
       :class="{
         open,
-        'active': isActive($route, item.path)
+        active: isActive($route, item.path)
       }"
       :to="item.path"
       @click.native="$emit('toggle')"
     >
       <span>{{ item.title }}</span>
-      <span
-        class="arrow"
-        v-if="collapsable"
-        :class="open ? 'down' : 'right'">
+      <span class="arrow" v-if="collapsable" :class="open ? 'down' : 'right'">
       </span>
     </router-link>
 
@@ -34,10 +31,7 @@
       @click="$emit('toggle')"
     >
       <span>{{ item.title }}</span>
-      <span
-        class="arrow"
-        v-if="collapsable"
-        :class="open ? 'down' : 'right'">
+      <span class="arrow" v-if="collapsable" :class="open ? 'down' : 'right'">
       </span>
     </p>
 
@@ -64,10 +58,11 @@ export default defineComponent({
   props: ['item', 'open', 'collapsable', 'depth'],
   components: { DropdownTransition },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
-    instance.$options.components.SidebarLinks = require('./SidebarLinks.vue').default
+    instance.$options.components.SidebarLinks =
+      require('./SidebarLinks.vue').default
 
     return { isActive }
   }

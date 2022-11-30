@@ -1,0 +1,13 @@
+# Ignore artifacts:
+build
+coverage
+dist
+node_modules
+
+
+# Ignore files:
+**/*.md
+**/*.svg
+**/*.ejs
+**/*.html
+

@@ -19,15 +19,14 @@
         >
           <h4 v-if="subItem.type === 'links'">{{ subItem.text }}</h4>
 
-          <ul
-            class="dropdown-subitem-wrapper"
-            v-if="subItem.type === 'links'"
-          >
+          <ul class="dropdown-subitem-wrapper" v-if="subItem.type === 'links'">
             <li
               class="dropdown-subitem"
               :key="childSubItem.link"
               v-for="childSubItem in subItem.items"
-            ><NavLink :item="childSubItem"/></li>
+            >
+              <NavLink :item="childSubItem" />
+            </li>
           </ul>
 
           <NavLink v-else :item="subItem" />
@@ -53,7 +52,7 @@ export default defineComponent({
     }
   },
 
-  setup (props, ctx) {
+  setup(props, ctx) {
     // open 初始状态设置为false
     const open = ref(true)
 

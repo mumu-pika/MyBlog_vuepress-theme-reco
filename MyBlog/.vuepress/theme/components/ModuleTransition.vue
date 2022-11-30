@@ -5,7 +5,8 @@
     name="module"
     @enter="setStyle"
     @after-enter="unsetStyle"
-    @before-leave="setStyle">
+    @before-leave="setStyle"
+  >
     <slot />
   </transition>
 </template>
@@ -26,12 +27,12 @@ export default {
   },
 
   methods: {
-    setStyle (items) {
+    setStyle(items) {
       items.style.transition = `all ${this.duration}s ease-in-out ${this.delay}s`
       items.style.transform = 'translateY(-20px)'
       items.style.opacity = 0
     },
-    unsetStyle (items) {
+    unsetStyle(items) {
       items.style.transform = 'translateY(0)'
       items.style.opacity = 1
     }

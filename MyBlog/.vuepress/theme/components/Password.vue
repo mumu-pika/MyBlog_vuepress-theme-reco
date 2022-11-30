@@ -1,11 +1,15 @@
 <template>
   <div class="password-shadow">
     <ModuleTransition>
-      <h3 v-show="recoShowModule" class="title">{{isPage ? $frontmatter.title : $site.title || $localeConfig.title}}</h3>
+      <h3 v-show="recoShowModule" class="title">
+        {{ isPage ? $frontmatter.title : $site.title || $localeConfig.title }}
+      </h3>
     </ModuleTransition>
 
     <ModuleTransition delay="0.08">
-      <p class="description" v-if="recoShowModule && !isPage">{{$site.description || $localeConfig.description}}</p>
+      <p class="description" v-if="recoShowModule && !isPage">
+        {{ $site.description || $localeConfig.description }}
+      </p>
     </ModuleTransition>
 
     <ModuleTransition delay="0.16">
@@ -15,8 +19,9 @@
           type="password"
           @keyup.enter="inter"
           @focus="inputFocus"
-          @blur="inputBlur">
-        <span>{{warningText}}</span>
+          @blur="inputBlur"
+        />
+        <span>{{ warningText }}</span>
         <button ref="passwordBtn" @click="inter">OK</button>
       </label>
     </ModuleTransition>
@@ -25,14 +30,19 @@
       <div v-show="recoShowModule" class="footer">
         <span>
           <reco-icon icon="reco-theme" />
-          <a target="blank" href="https://vuepress-theme-reco.recoluan.com">vuePress-theme-reco</a>
+          <a target="blank" href="https://vuepress-theme-reco.recoluan.com"
+            >vuePress-theme-reco</a
+          >
         </span>
         <span>
           <reco-icon icon="reco-copyright" />
           <a>
             <span v-if="$themeConfig.author">{{ $themeConfig.author }}</span>
             &nbsp;&nbsp;
-            <span v-if="$themeConfig.startYear && $themeConfig.startYear != year">{{ $themeConfig.startYear }} - </span>
+            <span
+              v-if="$themeConfig.startYear && $themeConfig.startYear != year"
+              >{{ $themeConfig.startYear }} -
+            </span>
             {{ year }}
           </a>
         </span>
@@ -56,7 +66,7 @@ export default defineComponent({
       default: false
     }
   },
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const year = new Date().getFullYear()
@@ -72,7 +82,9 @@ export default defineComponent({
       return keys.indexOf(sessionStorage.getItem('key')) > -1
     }
     const isHasPageKey = () => {
-      const pageKeys = instance.$frontmatter.keys.map(item => item.toLowerCase())
+      const pageKeys = instance.$frontmatter.keys.map(item =>
+        item.toLowerCase()
+      )
       const pageKey = `pageKey${window.location.pathname}`
 
       return pageKeys && pageKeys.indexOf(sessionStorage.getItem(pageKey)) > -1
@@ -109,7 +121,15 @@ export default defineComponent({
       warningText.value = 'Konck! Knock!'
     }
 
-    return { warningText, year, key, recoShowModule, inter, inputFocus, inputBlur }
+    return {
+      warningText,
+      year,
+      key,
+      recoShowModule,
+      inter,
+      inputFocus,
+      inputBlur
+    }
   }
 })
 </script>

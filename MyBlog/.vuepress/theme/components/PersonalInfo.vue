@@ -1,39 +1,36 @@
 <!-- 个人信息展示组件 -->
 <template>
-<div class="personal-info-wrapper">
-  <img
-    class="personal-img"
-    v-if="$themeConfig.authorAvatar"
-    :src="$withBase($themeConfig.authorAvatar)"
-    alt="author-avatar"
-  >
-  <h3
-    class="name"
-    v-if="$themeConfig.author"
-  >
-    {{ $themeConfig.author }}
-  </h3>
-  <div class="num">
-    <div>
-      <h3>{{$recoPosts.length}}</h3>
-      <h6>{{$recoLocales.article}}</h6>
+  <div class="personal-info-wrapper">
+    <img
+      class="personal-img"
+      v-if="$themeConfig.authorAvatar"
+      :src="$withBase($themeConfig.authorAvatar)"
+      alt="author-avatar"
+    />
+    <h3 class="name" v-if="$themeConfig.author">
+      {{ $themeConfig.author }}
+    </h3>
+    <div class="num">
+      <div>
+        <h3>{{ $recoPosts.length }}</h3>
+        <h6>{{ $recoLocales.article }}</h6>
+      </div>
+      <div>
+        <h3>{{ $tags.list.length }}</h3>
+        <h6>{{ $recoLocales.tag }}</h6>
+      </div>
     </div>
-    <div>
-      <h3>{{$tags.list.length}}</h3>
-      <h6>{{$recoLocales.tag}}</h6>
-    </div>
+    <ul class="social-links">
+      <li class="social-item" v-for="(item, index) in socialLinks" :key="index">
+        <reco-icon
+          :icon="item.icon"
+          :link="item.link"
+          :style="{ color: item.color }"
+        />
+      </li>
+    </ul>
+    <hr />
   </div>
-  <ul class="social-links">
-    <li
-      class="social-item"
-      v-for="(item, index) in socialLinks"
-      :key="index"
-    >
-      <reco-icon :icon="item.icon" :link="item.link" :style="{ color: item.color }" />
-    </li>
-  </ul>
-  <hr>
-</div>
 </template>
 
 <script>
@@ -44,12 +41,18 @@ import { useInstance } from '@theme/helpers/composable'
 
 export default defineComponent({
   components: { RecoIcon },
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
-    const socialLinks = computed(() => (instance.$themeConfig.blogConfig && instance.$themeConfig.blogConfig.socialLinks || []).map(item => {
-      if (!item.color) item.color = getOneColor()
-      return item
-    }))
+    const socialLinks = computed(() =>
+      (
+        (instance.$themeConfig.blogConfig &&
+          instance.$themeConfig.blogConfig.socialLinks) ||
+        []
+      ).map(item => {
+        if (!item.color) item.color = getOneColor()
+        return item
+      })
+    )
 
     return { socialLinks }
   }

@@ -4,9 +4,11 @@
       v-for="(item, index) in tags"
       v-show="!item.pages || (item.pages && item.pages.length > 0)"
       :key="index"
-      :class="{'active': item.name == currentTag}"
-      :style="{ 'backgroundColor': getOneColor() }"
-      @click="tagClick(item)">{{item.name}}</span>
+      :class="{ active: item.name == currentTag }"
+      :style="{ backgroundColor: getOneColor() }"
+      @click="tagClick(item)"
+      >{{ item.name }}</span
+    >
   </div>
 </template>
 
@@ -22,10 +24,13 @@ export default defineComponent({
       default: ''
     }
   },
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
     const tags = computed(() => {
-      return [{ name: instance.$recoLocales.all, path: '/tag/' }, ...instance.$tagesList]
+      return [
+        { name: instance.$recoLocales.all, path: '/tag/' },
+        ...instance.$tagesList
+      ]
     })
 
     const tagClick = tag => {

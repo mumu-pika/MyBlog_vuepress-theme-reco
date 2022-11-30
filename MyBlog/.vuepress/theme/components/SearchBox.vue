@@ -5,7 +5,7 @@
       @input="query = $event.target.value"
       aria-label="Search"
       :value="query"
-      :class="{ 'focused': focused }"
+      :class="{ focused: focused }"
       :placeholder="placeholder"
       autocomplete="off"
       spellcheck="false"
@@ -15,7 +15,7 @@
       @keyup.up="onUp"
       @keyup.down="onDown"
       ref="input"
-    >
+    />
     <ul
       class="suggestions"
       v-if="showSuggestions"
@@ -46,7 +46,7 @@ import { useInstance } from '@theme/helpers/composable'
 
 export default defineComponent({
   components: { RecoIcon },
-  setup (props, ctx) {
+  setup(props, ctx) {
     const instance = useInstance()
 
     const state = reactive({
@@ -57,12 +57,10 @@ export default defineComponent({
     })
 
     const showSuggestions = computed(() => {
-      return (
-        state.focused && suggestions.value && suggestions.value.length
-      )
+      return state.focused && suggestions.value && suggestions.value.length
     })
 
-    const getPageLocalePath = (page) => {
+    const getPageLocalePath = page => {
       for (const localePath in instance.$site.locales || {}) {
         if (localePath !== '/' && page.path.indexOf(localePath) === 0) {
           return localePath
@@ -79,9 +77,8 @@ export default defineComponent({
       const { pages } = instance.$site
       const max = instance.$site.themeConfig.searchMaxSuggestions
       const localePath = instance.$localePath
-      const matches = item => (
+      const matches = item =>
         item && item.title && item.title.toLowerCase().indexOf(query) > -1
-      )
       const res = []
       for (let i = 0; i < pages.length; i++) {
         if (res.length >= max) break
@@ -97,10 +94,12 @@ export default defineComponent({
             if (res.length >= max) break
             const h = p.headers[j]
             if (matches(h)) {
-              res.push(Object.assign({}, p, {
-                path: p.path + '#' + h.slug,
-                header: h
-              }))
+              res.push(
+                Object.assign({}, p, {
+                  path: p.path + '#' + h.slug,
+                  header: h
+                })
+              )
             }
           }
         }
@@ -134,7 +133,7 @@ export default defineComponent({
       }
     }
 
-    const go = (i) => {
+    const go = i => {
       if (!showSuggestions.value) {
         return
       }
@@ -143,7 +142,7 @@ export default defineComponent({
       state.focusIndex = 0
     }
 
-    const focus = (i) => {
+    const focus = i => {
       state.focusIndex = i
     }
 
@@ -151,9 +150,19 @@ export default defineComponent({
       state.focusIndex = -1
     }
 
-    return { showSuggestions, suggestions, alignRight, onUp, onDown, focus, unfocus, go, ...toRefs(state) }
+    return {
+      showSuggestions,
+      suggestions,
+      alignRight,
+      onUp,
+      onDown,
+      focus,
+      unfocus,
+      go,
+      ...toRefs(state)
+    }
   },
-  mounted () {
+  mounted() {
     this.placeholder = this.$site.themeConfig.searchPlaceholder || ''
   }
 })
