@@ -56,7 +56,7 @@ list.innerHTML = htmlStr;
 //以下是声明式编码
 <ul id = "list">
     <li v-for = "p in persons">
-        {{p.id} - {p.name} - {p.age}}
+        {{p.id}}
     </li>
 </ul>
 ```
