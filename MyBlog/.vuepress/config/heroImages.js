@@ -28,7 +28,7 @@ module.exports = [
   // 'https://s2.loli.net/2022/06/19/HtJjduwRea8hxq9.webp' // 钢琴天堂
 
   // 使用本地图片文件(注意这里的路径, 是HomeBlog组件相对于public/images中的图片文件的路径)
-  '../../images/heroImages/Bridge.webp',// 冬木大桥
+  '../../images/heroImages/Bridge.webp', // 冬木大桥
   '../../images/heroImages/mountain.webp', // 白山红林
   '../../images/heroImages/girlsCar.webp', // 少女与战车
   '../../images/heroImages/universe.webp', // 太空遨游

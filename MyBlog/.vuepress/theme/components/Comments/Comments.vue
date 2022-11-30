@@ -77,10 +77,10 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-  .commentBoardContainer
-    display flex
-    justify-content: center
-    border-bottom 2px solid skyblue
-    .commentBoardText
-      color #fc5531
+.commentBoardContainer
+  display flex
+  justify-content: center
+  border-bottom 2px solid skyblue
+  .commentBoardText
+    color #fc5531
 </style>

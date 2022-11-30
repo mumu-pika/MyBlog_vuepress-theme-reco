@@ -31,6 +31,4 @@ module.exports = [
   'https://s2.loli.net/2022/06/19/EXdK6lJDIzhGMut.webp', // saber拔出石中剑
   'https://s2.loli.net/2022/06/19/n5fDAJh1RHOumvY.webp', // 无限剑制
   'https://s2.loli.net/2022/06/19/hStRIp413swc26N.webp' // 四月是你的谎言
-
-
 ]
