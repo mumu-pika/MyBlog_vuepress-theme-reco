@@ -158,5 +158,14 @@ module.exports = [
         buttonText: '冒险！冲！'
       }
     }
+  ],
+
+  // Google Analytics 谷歌统计分析
+  // https://v1.vuepress.vuejs.org/plugin/official/plugin-google-analytics.html#install
+  [
+    '@vuepress/google-analytics',
+    {
+      'ga': 'G-SVWLDC4H9R' // UA-00000000-0
+    }
   ]
 ]

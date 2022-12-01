@@ -9,6 +9,7 @@
   },
   "devDependencies": {
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",
+    "@vuepress/plugin-google-analytics": "^1.9.7",
     "@vuepress/plugin-pwa": "^1.9.7",
     "prettier": "2.8.0",
     "vue-canvas-effect": "^0.0.12",

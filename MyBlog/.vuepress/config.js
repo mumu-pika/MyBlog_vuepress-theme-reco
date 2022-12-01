@@ -8,6 +8,7 @@ module.exports = {
   title: '木木的秘密花园', //左上角网站标题
   description: "mumu 's blog", //网站描述，会在首次loading页面时加载
   dest: 'dist', //vuepress build 的输出目录
+  // 对于head来说, [tagName, { attrName: attrValue }, innerHTML?]
   head: [
     // DNS 预解析 dns-prefetch , 是为了优化图片加载的速度
     ['link', { rel: 'dns-prefetch', href: 'https://s2.loli.net' }],
