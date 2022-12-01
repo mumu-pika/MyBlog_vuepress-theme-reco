@@ -37,5 +37,5 @@ module.exports = [
   '../../images/heroImages/MountainFuji.webp', // 富士山高阁
   '../../images/heroImages/castle.webp', // 城堡
   '../../images/heroImages/wait.webp', // 少女守望
-  '../../images/heroImages/April.webp' // 钢琴天堂
+  // '../../images/heroImages/April.webp' // 钢琴天堂
 ]

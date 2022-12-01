@@ -61,6 +61,18 @@
         </ModuleTransition>
 
         <ModuleTransition delay="0.12" duration="0.5">
+          <!-- 友链提示板 -->
+          <div class="friendLinkContainer">
+            <p class="friendLinkTips">🎉 欢迎评论区留言友链信息，互换友链~</p>
+            <div class="friendLinkContent">
+              <span>博客名称 title: mumu’s Blog</span>
+              <span>博客描述 desc: 一心一明月，一树一年华</span>
+              <span>头像 avatar: https://www.pikamumu.top/logo.png</span>
+              <span>友链地址 link: https://www.pikamumu.top</span>
+            </div>
+          </div>
+        </ModuleTransition>
+        <ModuleTransition delay="0.12" duration="0.5">
           <!-- 评论区域 -->
           <Comments />
         </ModuleTransition>
@@ -121,7 +133,7 @@ export default {
     typedString4() {
       return new Typed('#typed4', {
         // stringsElement: "#typed-strings",
-        strings: ['能在茫茫互联网中遇见你，非常不易，欢迎留言，共勉成长！'],
+        strings: ['有幸在茫茫互联网中遇见你，欢迎留言，共勉成长！'],
         typeSpeed: 100, //设置打字的速度，单位为毫秒，数值越大，打字速度越慢
         startDelay: 14000, // 设置开始打字前的延迟
         showCursor: false //设置是否显示鼠标
@@ -190,7 +202,7 @@ export default {
     height: 20rem
     padding: 2rem
     margin: 1rem auto
-    border: 2px solid #bfa
+    border: 2px solid #ec7da1
     border-radius: 1rem
     // 这里设置伪元素是为了背景图片与内部的字体可以分别区分开透明度
     &::before
@@ -217,6 +229,27 @@ export default {
       margin: 0.6rem auto
       font-size: 1rem
       font-weight: 600
+  // 友链留言
+  .friendLinkContainer
+    display block
+    width 50%
+    margin 0 auto
+    border 2px groove var(--box-shadow-hover)
+    .friendLinkTips
+      font-weight 500
+    .friendLinkContent
+      display flex
+      flex-direction column
+      align-items: flex-start
+      flex-flow: word-wrap
+      padding 1rem
+      background-color var(--background-color)
+      box-shadow: var(--box-shadow-hover)
+      color: var(--text-color)
+      font-size: 1rem
+      font-weight: 600
+      opacity 0.8
+
   // 个人联系方式的小图标
   .socials
     margin: 3rem 0
@@ -264,11 +297,11 @@ export default {
         flex-direction: column
         justify-content: center
         align-content: center
-        width: 22rem
-        height: 10rem
+        width: 24rem
+        height: 12rem
         padding: 2rem
         margin: 1rem auto
-        border: 2px solid #bfa
+        border: 2px solid #ec7da1
         border-radius: 1rem
         &::before
           content: ''
@@ -288,6 +321,26 @@ export default {
           display: inline
           margin: 0.2rem auto
           font-size: 1rem
+      .friendLinkContainer
+        display block
+        width 60%
+        margin 0 auto
+        border 2px groove var(--box-shadow-hover)
+        .friendLinkTips
+          font-weight 500
+        .friendLinkContent
+          display flex
+          flex-direction column
+          align-items: flex-start
+          flex-flow: word-wrap
+          overflow scroll
+          padding 1rem
+          background-color var(--background-color)
+          box-shadow: var(--box-shadow-hover)
+          color: var(--text-color)
+          font-size: 1rem
+          font-weight: 600
+          opacity 0.8
 
 // 手机
 @media (max-width: $MQMobileNarrow)
@@ -298,11 +351,11 @@ export default {
       flex-direction: column
       justify-content: center
       align-content: center
-      width: 15.5rem
-      height: 10rem
+      max-width 15.5rem
+      width: 60vw
       padding: 2rem
       margin: 1rem auto
-      border: 2px solid #bfa
+      border: 2px solid #ec7da1
       border-radius: 1rem
       &::before
         content: ''
@@ -322,4 +375,24 @@ export default {
         display: inline
         margin: 0.2rem auto
         font-size: 1rem
+
+    .friendLinkContainer
+      display block
+      width 95%
+      margin 0 auto
+      border 2px groove var(--box-shadow-hover)
+      .friendLinkTips
+        font-weight 500
+      .friendLinkContent
+        display flex
+        flex-direction column
+        align-items: flex-start
+        flex-flow: word-wrap
+        padding 1rem
+        background-color var(--background-color)
+        box-shadow: var(--box-shadow-hover)
+        color: var(--text-color)
+        font-size: 1rem
+        font-weight: 600
+        opacity 0.8
 </style>

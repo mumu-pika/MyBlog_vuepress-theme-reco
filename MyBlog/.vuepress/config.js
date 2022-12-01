@@ -148,6 +148,18 @@ module.exports = {
         desc: 'ssw’s Blog',
         logo: 'http://ssw.fit/pic/vehicle.jpeg',
         link: 'http://ssw.fit/'
+      },
+      {
+        title: '阮一峰的博客',
+        desc: '未来世界的幸存者',
+        logo: 'http://www.ruanyifeng.com/blog/images/person2.jpg',
+        link: 'https://www.ruanyifeng.com/'
+      },
+      {
+        title: '王世彪的博客',
+        desc: '积跬步以至千里，喜欢学习喜欢你。',
+        logo: 'https://pic-bed.sofineday.com/pic.red/blog_picBed2/raw/branch/master/images/20200806151030.png',
+        link: 'https://www.sofineday.com/'
       }
     ],
     // 社交信息
