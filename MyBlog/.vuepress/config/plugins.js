@@ -161,11 +161,11 @@ module.exports = [
   ],
 
   // Google Analytics 谷歌统计分析
-  // https://v2.vuepress.vuejs.org/reference/plugin/google-analytics.html
+  // https://v1.vuepress.vuejs.org/plugin/official/plugin-google-analytics.html
   [
-    '@vuepress/plugin-google-analytics',
+    '@vuepress/google-analytics',
     {
-      id: 'G-9J83F8V9WZ', // G-XXXXXXXXXX
+      'ga': 'UA-239996662-1' // UA-00000000-0
     }
   ],
 
