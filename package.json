@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "author": "reco_luan",
   "scripts": {
-    "start": "yarn dev",
+    "start": "SET NODE_OPTIONS=--openssl-legacy-provider && yarn dev",
     "dev": "vuepress dev MyBlog/. --open --host \"localhost\"",
-    "build": "vuepress build MyBlog/."
+    "build": "SET NODE_OPTIONS=--openssl-legacy-provider && vuepress build MyBlog/."
   },
   "devDependencies": {
     "@vuepress-reco/vuepress-plugin-kan-ban-niang": "^1.0.5",

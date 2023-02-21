@@ -160,6 +160,12 @@ module.exports = {
         desc: '积跬步以至千里，喜欢学习喜欢你。',
         logo: 'https://pic-bed.sofineday.com/pic.red/blog_picBed2/raw/branch/master/images/20200806151030.png',
         link: 'https://www.sofineday.com/'
+      },
+      {
+        title: 'JohnsonXin的博客',
+        desc: '风和日暖令人愿意永远活下去。',
+        logo: 'https://p3-passport.byteimg.com/img/user-avatar/6133eb6b49b7709241a07379f7f509c0~180x180.awebp',
+        link: 'https://reday.asia'
       }
     ],
     // 社交信息
